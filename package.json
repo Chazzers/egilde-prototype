@@ -1,0 +1,29 @@
+{
+  "name": "egilde-prototype",
+  "version": "1.0.0",
+  "description": "Een dashboard voor 17 e-health toepassingen",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chazzers/egilde-prototype.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Chazzers/egilde-prototype/issues"
+  },
+  "homepage": "https://github.com/Chazzers/egilde-prototype#readme",
+  "dependencies": {
+    "contentful": "^8.3.5",
+    "dotenv": "^9.0.2",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
