@@ -7,6 +7,7 @@ require('dotenv').config()
 const port = process.env.PORT || 3000
 
 const renderIndex = require('./src/controllers/renderIndex')
+const renderProduct = require('./src/controllers/renderProduct')
 
 app
 	.set('view engine', 'ejs')
@@ -19,6 +20,7 @@ app
 	.use(express.json())
 	
 	.get('/', renderIndex)
+	.get('/product/:id', renderProduct)
 
 	.listen(port, () => {
 		console.log(`Example app listening at http://localhost:${port}`)

@@ -1,6 +1,7 @@
 const contentful = require('contentful')
 
-async function renderIndex(req, res) {
+async function renderProduct(req, res) {
+	const { id } = req.params
 	const client = contentful.createClient({
 		space: process.env.SPACE_ID,
 		environment: process.env.ENV_ID,
@@ -16,9 +17,8 @@ async function renderIndex(req, res) {
 	const { text } = entries[0].fields
 
 	res.render('index', {
-		title: text,
-		id: entries[0].id
+		title: text
 	})
 }
 
-module.exports = renderIndex
+module.exports = renderProduct
