@@ -7,12 +7,14 @@ async function renderIndex(req, res) {
 		accessToken: process.env.API_KEY
 	})
 
+	// 
 	const entries =  await client.getEntries({
 		content_type: 'blog'
 	})
 		.then((response) => response.items)
 
 	const { text } = entries[0].fields
+
 	res.render('index', {
 		title: text
 	})
