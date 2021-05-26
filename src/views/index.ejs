@@ -5,8 +5,19 @@
 </head>
 <body>
 	<header>
-		<h1><%= title %></h1>
+		<h1>
+
+		</h1>
 	</header>
-	<main></main>
+	<main>
+		<% items.forEach(item => { %>
+			<article class="ehealth-item">
+				<h3><%= item.fields.titel %></h3>
+				<% if(item.fields.afbeelding) { %>
+					<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
+				<% } %>
+			</article>
+		<% }) %>
+	</main>
 </body>
 </html>

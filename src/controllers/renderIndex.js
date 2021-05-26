@@ -11,13 +11,10 @@ async function renderIndex(req, res) {
 	const entries =  await client.getEntries()
 		.then((response) => response.items)
 
-		console.log(entries)
-
-	const { text } = entries[0].fields
+		console.log(entries[0].fields.afbeelding.fields.file.url)
 
 	res.render('index', {
-		title: text,
-		id: entries[0].id
+		items: entries
 	})
 }
 
