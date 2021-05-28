@@ -3,6 +3,7 @@ const next = document.getElementById('next')
 const omahaDomeinInput = document.querySelectorAll('.omaha-domein-input')
 const omahaFieldsets = document.querySelectorAll('.omaha-form fieldset')
 const omahaSubmit = document.getElementById('omaha-submit')
+const
 // Spread operator, can be used to transform a node list to an array, this way you can use all the array methods like: array.filter, array.map, array.forEach etc.
 
 if(next) {
@@ -27,4 +28,8 @@ if(next) {
 		return
 	}
 	next.addEventListener('click', nextToDomainTags)
+}
+
+function filterEHealthToepassing() {
+
 }
