@@ -15,7 +15,7 @@
 	</header>
 	<main>
 		<% items.forEach(item => { %>
-			<article class="ehealth-item">
+			<article data-id="<%= item.fields.tags %>" class="ehealth-item">
 				<h3><%= item.fields.titel %></h3>
 				<% if(item.fields.afbeelding) { %>
 					<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">

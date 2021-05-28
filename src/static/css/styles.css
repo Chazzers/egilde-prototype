@@ -64,7 +64,7 @@ h2 {
 }
 
 h3 {
-	font-size: 1.75em;
+	font-size: 1em;
 }
 
 h4 {
@@ -323,4 +323,8 @@ article h3{
 	left: 0px;
 	background-color: var(--main-color);
 	height: 50px;
+}
+
+.hide {
+	display: none;
 }
