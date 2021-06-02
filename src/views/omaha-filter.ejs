@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 <head>
 	<%- include('partials/Head.ejs') %> 
 </head>
@@ -10,40 +10,14 @@
 		</h1>
 	</header>
 	<main class="omaha">
-		<form class="omaha-form" action="/omaha-form" method="POST">
-			<fieldset data-id="domein">
-				<legend>Kies een domein</legend>
-				<div class="domein-input-container">
-					<% filterData.forEach(item => { %>
-						<input class="omaha-domein-input" id="<%= item.id %>" type="radio" name="domein" value="<%= item.id %>">
-						<label class="omaha-domein-label" for="<%= item.id %>">
-							<%= item.domein %>
-						</label>
-					<% }) %>
-				</div>
-			</fieldset>
-			<button type="button" id="next"  class="omaha-form-button">Volgende</button>
-			<% filterData.forEach(domein => { %>
-				<fieldset data-id="<%= domein.id %>" class="<%= domein.id %>-container domein-tag-fieldset">
-					<legend>
-						<% if(domein.domein === 'Risicofactoren') { %>
-							Kies een eigenschap binnen <%= domein.domein %>
-						<% } else { %>
-							Kies een eigenschap binnen het <%= domein.domein %>
-						<% } %>
-					</legend>
-					<div class="domein-tag-input-container">
-						<% domein.domeinTags.forEach(tag => { %>
-							<input class="omaha-domein-tag-input" id="<%= tag.tagId %>" type="radio" name="domeinTags" value="<%= tag.tagId %>">
-							<label class="omaha-domein-tag-label" for="<%= tag.tagId %>">
-								<%= tag.tag %>
-							</label>
-						<% }) %>
-					</div>
-				</fieldset>
+			<% filterData.forEach(item => { %>
+				<a 
+					class="omaha-domein-label" 
+					href="/omaha-filter/<%= item.id %>"
+				>
+					<%= item.domein %>
+				</a>
 			<% }) %>
-			<button id="omaha-submit" class="omaha-form-button" type="submit">Submit</button>
-		</form>
 	</main>
 </body>
 </html>

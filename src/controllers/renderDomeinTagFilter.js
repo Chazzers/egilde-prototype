@@ -164,14 +164,16 @@ const filterData = [
 	}
 ]
 
-function renderOmahaFilter(req, res) {
+function renderDomeinTagFilter(req, res) {
+	const { domein } = req.params
 	const newFilterData = filterData.map(item => {
 		replaceWhitespaceAndSlashWithHyphen(item.domeinTags, 'tag', 'slug')
 		return item
 	})
-	res.render('omaha-filter', {
-		filterData: newFilterData
+	const filteredDomainData = newFilterData.filter(item => item.id === domein)
+	res.render('omaha-domein', {
+		filterData: filteredDomainData
 	})
 }
 
-module.exports = renderOmahaFilter
+module.exports = renderDomeinTagFilter

@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const fetch = require('node-fetch')
 
 require('dotenv').config()
 
@@ -8,8 +7,8 @@ const port = process.env.PORT || 3000
 
 const renderIndex = require('./src/controllers/renderIndex')
 const renderOmahaFilter = require('./src/controllers/renderOmahaFilter')
-const renderProduct = require('./src/controllers/renderProduct')
 const postOmahaFilterForm = require('./src/controllers/postOmahaFilterForm')
+const renderDomeinTagFilter = require('./src/controllers/renderDomeinTagFilter')
 
 app
 	.set('view engine', 'ejs')
@@ -22,10 +21,10 @@ app
 	.use(express.json())
 	
 	.get('/', renderIndex)
-	.get('/product/:id', renderProduct)
 	.get('/omaha-filter', renderOmahaFilter)
+	.get('/omaha-filter/:domein', renderDomeinTagFilter)
 
-	.post('/omaha-form', postOmahaFilterForm)
+	.post('/omaha-domein', postOmahaFilterForm)
 
 	.listen(port, () => {
 		console.log(`Example app listening at http://localhost:${port}`)

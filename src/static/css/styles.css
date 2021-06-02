@@ -93,13 +93,15 @@ button {
 	font-size: 1rem;
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
+
 .zoekbalk {
 	width: 100%;
 }
 
-.omaha-form .domein-tag-fieldset {
-	display: none;
-}
 .omaha-domein-input,
 .omaha-domein-tag-input {
 	display: none;
@@ -242,10 +244,10 @@ fieldset {
 	color: white;
 }
 
-#omaha-submit {
-	display: none;
+.buttons-container {
+	display: flex;
+	justify-content: space-between;
 }
-
 
 /*body header  main  */
 
@@ -348,8 +350,8 @@ article h3{
 	}
 
 	#wrap{
-	grid-column: 2/3;
-	grid-row: 1/2;
+		grid-column: 2/3;
+		grid-row: 1/2;
 	}
 }
 
