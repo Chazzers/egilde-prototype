@@ -323,6 +323,16 @@ main.indexPage{
 	background-color: #5E6099;
 	border-radius: 10px;
 }
+.indexPage #showmorebutton {
+	color: black;
+	margin: 0;
+}
+
+.indexPage #showmorebutton:hover {
+	text-decoration: underline;
+	color: var(--third-color);
+}
+
 
 
 section.ehealthitemscontainer{
