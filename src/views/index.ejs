@@ -12,17 +12,40 @@
 			<form action="" autocomplete="on">
 			<input id="search" name="search" type="text" placeholder="Wat zoek je?"><input id="search_submit" value="Rechercher" type="submit">
 			</form>
-		  </div>
+		</div>
 	</header>
-	<main>
-		<% items.forEach(item => { %>
-			<article data-id="<%= item.fields.tags %>" class="ehealth-item">
-				<h3><%= item.fields.titel %></h3>
-				<% if(item.fields.afbeelding) { %>
-					<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
-				<% } %>
-			</article>
-		<% }) %>
+	<main class="indexPage">
+		<form>
+			<button type="button" id="filterButton">
+				<p id="text">Filter</p>
+			</button>
+			<fieldset class="">
+				<legend>Domeinen</legend>
+				<% filteredData.forEach(domein => { %>
+					<div class="container">
+						<legend for="<%= domein.id %>"><%= domein.domein %></legend>
+						<div class="hide">
+							<% domein.domeinTags.forEach(tag => { %>
+								<input id="<%= tag.tagId %>" type="checkbox" name="domeinTags" value="<%= tag.tagId %>">
+								<label for="<%= tag.tagId %>"><%= tag.tag %></label> 
+								<br>
+							<% }) %> 
+						</div>
+						<button type="button" id="showmorebutton">Show more</button>
+					</div>
+				<% }) %>
+			</fieldset>
+		</form>
+		<section class="ehealthitemscontainer">
+			<% items.forEach(item => { %>
+				<article data-id="<%= item.fields.tags %>" class="ehealth-item">
+					<h3><%= item.fields.titel %></h3>
+					<% if(item.fields.afbeelding) { %>
+						<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
+					<% } %>
+				</article>
+			<% }) %>
+		</section>
 	</main>
 </body>
 </html>
