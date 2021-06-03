@@ -21,17 +21,24 @@
 			</button>
 			<fieldset class="">
 				<legend>Domeinen</legend>
-				<% filteredData.forEach(domein => { %>
+				<% filteredData.forEach((domein, index) => { %>
 					<div class="container">
 						<legend for="<%= domein.id %>"><%= domein.domein %></legend>
-						<div class="hide">
-							<% domein.domeinTags.forEach(tag => { %>
-								<input id="<%= tag.tagId %>" type="checkbox" name="domeinTags" value="<%= tag.tagId %>">
-								<label for="<%= tag.tagId %>"><%= tag.tag %></label> 
+						<div>
+							<% for( let index = 0; index < 3; index++ ) { %>
+								<input class="filter-checkbox" id="<%= domein.domeinTags[index].slug %>" type="checkbox" name="domeinTags" value="<%= domein.domeinTags[index].slug %>">
+								<label for="<%= domein.domeinTags[index].slug %>"><%= domein.domeinTags[index].tag %></label> 
 								<br>
-							<% }) %> 
+							<% } %>
 						</div>
-						<button type="button" id="showmorebutton">Show more</button>
+						<div class="input-container hide">
+							<% for( let index = 3; index < domein.domeinTags.length; index++ ) { %>
+								<input class="filter-checkbox" id="<%= domein.domeinTags[index].slug %>" type="checkbox" name="domeinTags" value="<%= domein.domeinTags[index].slug %>">
+								<label for="<%= domein.domeinTags[index].slug %>"><%= domein.domeinTags[index].tag %></label> 
+								<br>
+							<% } %>
+						</div>
+						<button data-id="<%= index %>" type="button" class="showmorebutton">Toon meer</button>
 					</div>
 				<% }) %>
 			</fieldset>

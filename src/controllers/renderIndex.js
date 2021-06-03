@@ -405,18 +405,19 @@ async function renderIndex(req, res) {
 
 	const { items } = entries
 
+	const newFilterData = filteredData.map(item => {
+		replaceWhitespaceAndSlashWithHyphen(item.domeinTags, 'tag', 'slug')
+		return item
+	})
+
 	const transformedEntries = items.map(item => {
 		item.fields.tags = replaceWhitespaceAndSlashWithHyphen(item.fields.tags)
 		return item
 	})
 
 	res.render('index', {
-<<<<<<< HEAD
-		items: transformedEntries
-=======
-		items: entries,
-		filteredData: filteredData
->>>>>>> c41a8cd73ffdb71209da2b90ad326e94e08960c6
+		items: transformedEntries,
+		filteredData: newFilterData
 	})
 }
 
