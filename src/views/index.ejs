@@ -9,8 +9,8 @@
 			<h1>eHealth toepassingen</h1>
 		</div>
 		<div id="wrap">
-			<form action="" autocomplete="on">
-			<input id="search" name="search" type="text" placeholder="Wat zoek je?"><input id="search_submit" value="Rechercher" type="submit">
+			<form action="/" autocomplete="on" id="zoek-form">
+				<input id="search" name="search" type="text" placeholder="Wat zoek je?"><input id="search_submit" value="Rechercher" type="submit">
 			</form>
 		</div>
 	</header>
@@ -46,7 +46,7 @@
 		<section class="ehealthitemscontainer">
 			<% items.forEach(item => { %>
 				<a href="/products/<%= item.fields.slug %>">
-					<article data-id="<%= item.fields.tags %>" class="ehealth-item">
+					<article data-id="<%= item.fields.tags %>" data-title="<%= item.fields.slug %>"  class="ehealth-item">
 						<h3><%= item.fields.titel %></h3>
 						<% if(item.fields.afbeelding) { %>
 							<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
