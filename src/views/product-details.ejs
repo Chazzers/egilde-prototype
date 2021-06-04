@@ -14,17 +14,23 @@
 			</form>
 		</div>
 	</header>
-	<main class="indexPage">
-		<section class="ehealthitemscontainer">
-				<article data-id="<%= item.fields.tags %>" class="ehealth-item">
-                    <h3><%= item.fields.titel %></h3>
-                    <p><%= item.fields.beschrijving %></p>
-                    <p><%= item.fields.beschrijving %></p>
-					<% if(item.fields.afbeelding) { %>
-						<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
-					<% } %>
-				</article>
-		</section>
+	<main class="detailPage">
+		<article data-id="<%= item.fields.tags %>" class="ehealth-item">
+			<header>
+				<h3><%= item.fields.titel %></h3>
+			</header>
+			
+
+			
+			<section>
+				<%- item.fields.beschrijving %>
+			</section>
+			<section>
+				<% if(item.fields.afbeelding) { %>
+					<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
+				<% } %>
+			</section>
+		</article>
 	</main>
 </body>
 </html>

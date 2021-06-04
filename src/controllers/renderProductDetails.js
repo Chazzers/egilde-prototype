@@ -1,4 +1,5 @@
 const contentful = require('contentful')
+const documentToHtmlString = require('@contentful/rich-text-html-renderer').documentToHtmlString
 
 async function renderProductDetails(req, res){
     const { product } = req.params
@@ -15,11 +16,10 @@ async function renderProductDetails(req, res){
 
     const { items } = entries;
     const currentEntry = items[0];
-    console.log(currentEntry.fields.beschrijving)
-
-    currentEntry.fields.beschrijving.content.forEach(element => {
-        console.log(element.content)
-    });
+	
+	for(property in currentEntry.fields) {
+		currentEntry.fields[property] = documentToHtmlString(currentEntry.fields[property])
+	}
     
     res.render('product-details', {
 		item: currentEntry

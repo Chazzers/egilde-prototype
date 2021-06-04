@@ -447,3 +447,20 @@ article h3{
 	}
 }
 
+.detailPage article {
+	box-shadow: none;
+}
+
+
+.detailPage article section {
+	color: black;
+	text-align: left;
+	box-shadow: none;
+}
+
+.detailPage article h3 {
+	position: static;
+	background-color: transparent;
+	color: black;
+	text-align: left;
+}

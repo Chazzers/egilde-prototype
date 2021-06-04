@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
-	"start": "node app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/Chazzers/egilde-prototype#readme",
   "dependencies": {
-    "contentful": "^8.3.5",
+    "@contentful/rich-text-html-renderer": "^14.1.2",
+    "contentful": "^8.3.7",
     "dotenv": "^9.0.2",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
