@@ -15,19 +15,19 @@
 		</div>
 	</header>
 	<main class="detailPage">
-		<article data-id="<%= item.fields.tags %>" class="ehealth-item">
+		<article data-id="<%= item.tags %>" class="ehealth-item">
 			<header>
-				<h3><%= item.fields.titel %></h3>
+				<h3><%= item.titel %></h3>
 			</header>
 			
 
 			
 			<section>
-				<%- item.fields.beschrijving %>
+				<%- item.beschrijving %>
 			</section>
 			<section>
-				<% if(item.fields.afbeelding) { %>
-					<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
+				<% if(item.afbeelding) { %>
+					<img src="<%= item.afbeelding %>" alt="">
 				<% } %>
 			</section>
 		</article>

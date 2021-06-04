@@ -18,11 +18,17 @@ async function renderProductDetails(req, res){
     const currentEntry = items[0];
 	
 	for(property in currentEntry.fields) {
-		currentEntry.fields[property] = documentToHtmlString(currentEntry.fields[property])
+		if(currentEntry.fields[property].nodeType === 'document') {
+			currentEntry.fields[property] = documentToHtmlString(currentEntry.fields[property])
+		} else if(currentEntry.fields[property].sys) {
+			if(currentEntry.fields[property].sys.type === 'Asset') {
+				currentEntry.fields[property] = currentEntry.fields[property].fields.file.url
+			}
+		}
 	}
-    
+
     res.render('product-details', {
-		item: currentEntry
+		item: currentEntry.fields
 	})
 }
 
