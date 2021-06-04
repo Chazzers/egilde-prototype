@@ -42,8 +42,8 @@ function filterEHealthToepassing() {
 	
 		const hideEhealthItems = eHealthItemsArray.filter(item => !item.dataset.id.split(',').includes(params.domeinTags))
 	
-		eHealthItemsArray.forEach(item => item.classList.remove('hide'))
-		hideEhealthItems.forEach(item => item.classList.add('hide'))
+		eHealthItemsArray.forEach(item => item.classList.remove('hide-ehealth'))
+		hideEhealthItems.forEach(item => item.classList.add('hide-ehealth'))
 	}
 }
 if(ehealthItems) {
