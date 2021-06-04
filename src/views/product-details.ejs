@@ -4,31 +4,55 @@
 	<%- include('partials/Head.ejs') %> 
 </head>
 <body>
-	<header>
+	<header class="detailPageHeader">
 		<div class="titlecontainer">
-			<h1>eHealth toepassingen</h1>
+			<button class="vergelijkButton"><a href="/">Terug</a></button>
+			<h1><%= item.titel %></h1>
 		</div>
-		<div id="wrap">
-			<form action="" autocomplete="on">
-			<input id="search" name="search" type="text" placeholder="Wat zoek je?"><input id="search_submit" value="Rechercher" type="submit">
-			</form>
+		<div>
+			<button class="vergelijkButton">
+				<p id="text">Vergelijk</p>
+			</button>
 		</div>
 	</header>
 	<main class="detailPage">
-		<article data-id="<%= item.tags %>" class="ehealth-item">
-			<header>
-				<h3><%= item.titel %></h3>
-			</header>
-			
-
-			
+		<article data-id="<%= item.tags %>">
 			<section>
+				<h2>Beschrijving</h2>
 				<%- item.beschrijving %>
 			</section>
-			<section>
+			<section class="img">
 				<% if(item.afbeelding) { %>
 					<img src="<%= item.afbeelding %>" alt="">
 				<% } %>
+			</section>
+			<section>
+				<h2>Benodigheden</h2>
+				<div id="input-container1" class="hide">
+				<%- item.benodigdheden %>
+				</div>
+				<button type="button" id="meerButton1">Toon meer</button>
+			</section>
+			<section>
+				<h2>Gebruik</h2>
+				<div id="input-container2" class="hide">
+				<%- item.implementatieStappen %>
+				</div>
+				<button type="button" id="meerButton2">Toon meer</button>
+			</section>
+			<section>
+				<h2>Werking van product</h2>
+				<div id="input-container3" class="hide">
+				<%- item.werking %>
+				</div>
+				<button type="button" id="meerButton3">Toon meer</button>
+			</section>
+			<section>
+				<h2>Extra informatie</h2>
+				<div id="input-container4" class="hide">
+				<%- item.extraInformatie %>
+				</div>
+				<button type="button" id="meerButton4">Toon meer</button>
 			</section>
 		</article>
 	</main>
