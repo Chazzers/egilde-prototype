@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<%- include('partials/Head.ejs') %> 
+</head>
+<body>
+	<header>
+		<div class="titlecontainer">
+			<h1>eHealth toepassingen</h1>
+		</div>
+		<div id="wrap">
+			<form action="" autocomplete="on">
+			<input id="search" name="search" type="text" placeholder="Wat zoek je?"><input id="search_submit" value="Rechercher" type="submit">
+			</form>
+		</div>
+	</header>
+	<main class="indexPage">
+		<section class="ehealthitemscontainer">
+				<article data-id="<%= item.fields.tags %>" class="ehealth-item">
+                    <h3><%= item.fields.titel %></h3>
+                    <p><%= item.fields.beschrijving %></p>
+                    <p><%= item.fields.beschrijving %></p>
+					<% if(item.fields.afbeelding) { %>
+						<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
+					<% } %>
+				</article>
+		</section>
+	</main>
+</body>
+</html>
