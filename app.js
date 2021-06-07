@@ -12,6 +12,7 @@ const renderOmahaFilter = require('./src/controllers/renderOmahaFilter')
 const postOmahaFilterForm = require('./src/controllers/postOmahaFilterForm')
 const renderDomeinTagFilter = require('./src/controllers/renderDomeinTagFilter')
 const renderProductDetails = require('./src/controllers/renderProductDetails')
+const renderSearchPage = require('./src/controllers/renderSearchPage')
 
 app
 	.set('view engine', 'ejs')
@@ -31,6 +32,7 @@ app
 	.get('/omaha-filter', renderOmahaFilter)
 	.get('/omaha-filter/:domein', renderDomeinTagFilter)
 	.get('/products/:product', renderProductDetails)
+	.get('/zoek', renderSearchPage)
 
 	.post('/omaha-domein', postOmahaFilterForm)
 
