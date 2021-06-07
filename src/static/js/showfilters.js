@@ -15,21 +15,24 @@ button.addEventListener("click", function(){
     fieldset.classList.toggle("showclass")
 })
 
+if(buttonshowArray) {
+	buttonshowArray.forEach(item => item.addEventListener('click', () => {
+		filters[item.dataset.id].classList.toggle('showmore')
+		if(filters[item.dataset.id].classList.contains('showmore')) {
+			buttonshow[item.dataset.id].innerHTML = 'Toon minder'
+		} else {
+			buttonshow[item.dataset.id].innerHTML = 'Toon meer'
+		}
+	}))
+}
 
-buttonshowArray.forEach(item => item.addEventListener('click', () => {
-	filters[item.dataset.id].classList.toggle('showmore')
-	if(filters[item.dataset.id].classList.contains('showmore')) {
-		buttonshow[item.dataset.id].innerHTML = 'Toon minder'
-	} else {
-		buttonshow[item.dataset.id].innerHTML = 'Toon meer'
-	}
-}))
-
-allFilterCheckboxesArray.forEach(item => item.addEventListener('click', () => {
-	ehealthItemsArray.forEach(item => item.classList.remove('hide-ehealth'))
-	const hideEhealthItems = filterAllTagsNecessary(ehealthItemsArray)
-	hideEhealthItems.forEach(item => item.classList.add('hide-ehealth'))
-}))
+if(allFilterCheckboxes) {
+	allFilterCheckboxesArray.forEach(item => item.addEventListener('click', () => {
+		ehealthItemsArray.forEach(item => item.classList.remove('hide-ehealth'))
+		const hideEhealthItems = filterAllTagsNecessary(ehealthItemsArray)
+		hideEhealthItems.forEach(item => item.classList.add('hide-ehealth'))
+	}))
+}
 
 function filterOneTagIncluded(array) {
 	const checkedArray = allFilterCheckboxesArray.filter(item => item.checked)

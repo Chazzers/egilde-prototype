@@ -1,0 +1,163 @@
+.indexheader{
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 150px 1fr;
+	max-width: 1300px;;
+	margin: 5% auto 0;
+}
+
+.titlecontainer{
+	position: relative;
+
+	h1 {
+		margin: auto;
+		margin: 5px;
+		place-items: center;
+		width: 100%;
+	}
+}
+
+.indexPage{
+	display: flex;
+	margin: auto;
+	max-width: 1300px;
+
+	.showclass{
+		display: block;
+	}
+
+	fieldset{
+		display: none;
+	}
+
+	.container{
+		text-align: left;
+		width: 200px;
+		margin: 20px 0 0 0 ;
+
+		legend {
+			width: 200px;
+			font-weight: 550;
+			margin: 0px;
+			font-size: 21px;
+		}
+	}
+
+	#filters{
+		display: none;
+	}
+
+	legend{
+		width: 200px;
+		font-weight: bold;
+		margin: 0px;
+		font-size: 28px;
+	}
+
+	button {
+		padding: 0;
+		margin-top: 25px;
+
+		p {
+			color: white;
+			margin: 0 0 20px;
+			padding: 5px 20px;
+			font-size: 21px;
+			font-weight:100;
+			background-color: #5E6099;
+			border-radius: 10px;
+		}
+	}
+
+	button {
+		color: white;
+		margin: 10px 0 20px;
+		padding: 2px 5px;
+		font-size: 16px;
+		font-weight:100;
+		background-color: rgb(175, 175, 175);
+		border-radius: 5px;
+
+		&:hover {
+			text-decoration: underline;
+			background-color: $second-color;
+		}
+	}
+
+	.showmore {
+		max-height: 1000px;
+	}
+}
+
+section.ehealthitemscontainer{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 0 auto auto auto;
+	max-width: 1200px;
+}
+
+
+
+/* article */
+article {
+	width: 320px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 25px;
+	border-radius: 10px;
+	position: relative;
+	text-align: center;
+	color: white;
+	box-shadow: rgba(0, 0, 0, 0.424) 1px 1px 20px;
+	padding: 60px 10px 10px;
+	background-color: white;
+
+	img{
+		width: 300px;
+		margin: 0 auto;
+		border-radius: 10px;
+	}
+
+	h3 {
+		width: 100%;
+		border-radius: 10px 10px 0 0;
+		text-align: center;
+		color: white;
+		margin-top: 0;
+		padding: 5px 0px;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		background-color: $main-color;
+		height: 50px;
+	}
+}
+
+.input-container {
+	overflow: hidden;
+	transition: all 1s ease-out;
+}
+
+.hide {
+	max-height: 0;
+	transition: all 0.5s ease-out;
+}
+
+.hide-ehealth {
+	display: none;
+}
+
+
+@media screen and (min-width: 768px) {
+	header{
+		height: 100px;
+		grid-template-columns: 1fr 350px;
+		grid-template-rows: 1fr;
+	}
+	#wrap{
+		grid-column: 2/3;
+		grid-row: 1/2;
+	}
+}

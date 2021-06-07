@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express()
+const sassMiddleware = require('node-sass-middleware')
+const path = require('path')
 
 require('dotenv').config()
 
@@ -15,6 +17,10 @@ app
 	.set('view engine', 'ejs')
 	.set('views', './src/views')
 
+	.use(sassMiddleware({ 
+		src: path.join(__dirname, './src'), 
+		dest: path.join(__dirname, './src/static')
+	}))
 	.use(express.static('src/static'))
 	.use(express.urlencoded({
 		extended: true 
