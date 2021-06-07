@@ -8,17 +8,15 @@
 		<div class="titlecontainer">
 			<h1>eHealth toepassingen</h1>
 		</div>
-		<div id="wrap">
-			<form action="/" autocomplete="on" id="zoek-form">
-				<input id="search" name="search" type="text" placeholder="Wat zoek je?"><input id="search_submit" value="Rechercher" type="submit">
-			</form>
+		<div class="buttons">
+			<a href="/"><p id="text"><img src="/images/home.png" alt=""></p></a>
+			<a href="/saved"><p id="text"><img src="/images/fav.png" alt=""></p></a>
+			<a type="button" id="filterButton"><p id="text"><img src="/images/filter.png" alt=""></p></a>
+			<a href="/zoek"><p id="text"><img src="/images/search.png" alt=""></p></a>
 		</div>
 	</header>
 	<main class="indexPage">
 		<form>
-			<button type="button" id="filterButton">
-				<p id="text">Filter</p>
-			</button>
 			<fieldset class="">
 				<legend>Domeinen</legend>
 				<% filteredData.forEach((domein, index) => { %>
@@ -44,6 +42,14 @@
 			</fieldset>
 		</form>
 		<section class="ehealthitemscontainer">
+			<input class="filter-checkbox" id="fysieke-activiteits" type="checkbox" name="domeinTags" value="fysieke-activiteit">
+			<label for="fysieke-activiteits">Fysieke activiteit</label> 
+			<input class="filter-checkbox" id="cognities" type="checkbox" name="domeinTags" value="cognitie">
+			<label class="fysieke-activiteits" for="cognities">Cognitie</label> 
+			<input class="filter-checkbox" id="medicaties" type="checkbox" name="domeinTags" value="medicatie">
+			<label class="cognitie" for="medicaties">Medicatie</label> 
+
+			<section class="ehealthitemscontainer">
 			<% items.forEach(item => { %>
 				<a href="/products/<%= item.fields.slug %>">
 					<article data-id="<%= item.fields.tags %>" data-title="<%= item.fields.slug %>"  class="ehealth-item">
@@ -51,9 +57,12 @@
 						<% if(item.fields.afbeelding) { %>
 							<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
 						<% } %>
+						<h4>Tags:</h4>
+						<h5> - <%= item.fields.tags %></h5>
 					</article>
 				</a>
 			<% }) %>
+			</section>
 		</section>
 	</main>
 </body>
