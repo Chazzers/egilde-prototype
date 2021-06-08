@@ -1,11 +1,27 @@
 const contentful = require('contentful')
 const documentToHtmlString = require('@contentful/rich-text-html-renderer').documentToHtmlString
-const MostVisited = require('../models/MostVisited')
+const Page = require('../models/Page')
 
 async function renderProductDetails(req, res){
     const { product } = req.params
+	
+	const currentDetailPage = await Page.findOne({
+		slug: product
+	})
 
-	console.log(MostVisited)
+	if(currentDetailPage) {
+		let { visited } = currentDetailPage
+		visited++
+		await currentDetailPage.updateOne({ 
+			visited: visited
+		})
+	} else {
+		const newPage = new Page({
+			slug: product,
+			visited: 1
+		})
+		Page.create(newPage)
+	}
 
 	if(req.cookies.recent_bekeken) {
 		if(!req.cookies.recent_bekeken.includes(product)) {
