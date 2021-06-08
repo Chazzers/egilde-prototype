@@ -195,8 +195,6 @@ fieldset {
 	justify-content: space-between;
 }
 
-/*body header  main  */
-
 .indexheader{
 	display: grid;
 	grid-template-columns: 1fr;
@@ -437,7 +435,6 @@ article h5{
 .hide-ehealth {
 	display: none;
 }
-
 
 /*  */
 /* Detailpage */

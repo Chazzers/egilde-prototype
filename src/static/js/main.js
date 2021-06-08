@@ -7,7 +7,6 @@ const ehealthItems = document.querySelectorAll('.ehealth-item')
 const zoekForm = document.getElementById('zoek-form')
 const search = document.getElementById('search')
 // Spread operator, can be used to transform a node list to an array, this way you can use all the array methods like: array.filter, array.map, array.forEach etc.
-
 if(next) {
 	const omahaDomeinInputArray = [...omahaDomeinInput]
 

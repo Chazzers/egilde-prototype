@@ -9,46 +9,51 @@ const divWerking = document.getElementById("input-container3")
 const divExtra = document.getElementById("input-container4")
 
 
-buttonBenodigdheden.addEventListener("click", function(){
-    divBenodigdheden.classList.toggle("showMoreClass")
-    if (buttonBenodigdheden.textContent === "Toon meer"){
-        buttonBenodigdheden.textContent = "Toon minder"
-    }
+if(buttonBenodigdheden) {
+	buttonBenodigdheden.addEventListener("click", function(){
+		divBenodigdheden.classList.toggle("showMoreClass")
+		if (buttonBenodigdheden.textContent === "Toon meer"){
+			buttonBenodigdheden.textContent = "Toon minder"
+		}
+	
+		else{
+			buttonBenodigdheden.textContent = "Toon meer"
+		}
+	})
+}
 
-    else{
-        buttonBenodigdheden.textContent = "Toon meer"
-    }
-})
-
-buttonGebruik.addEventListener("click", function(){
-    divGebruik.classList.toggle("showMoreClass")
-    if (buttonGebruik.textContent === "Toon meer"){
-        buttonGebruik.textContent = "Toon minder"
-    }
-
-    else{
-        buttonGebruik.textContent = "Toon meer"
-    }
-})
-
-buttonWerking.addEventListener("click", function(){
-    divWerking.classList.toggle("showMoreClass")
-    if (buttonWerking.textContent === "Toon meer"){
-        buttonWerking.textContent = "Toon minder"
-    }
-
-    else{
-        buttonWerking.textContent = "Toon meer"
-    }
-})
-
-buttonExtra.addEventListener("click", function(){
-    divExtra.classList.toggle("showMoreClass")
-    if (buttonExtra.textContent === "Toon meer"){
-        buttonExtra.textContent = "Toon minder"
-    }
-
-    else{
-        buttonExtra.textContent = "Toon meer"
-    }
-})
+if(buttonGebruik) {
+	buttonGebruik.addEventListener("click", function(){
+		divGebruik.classList.toggle("showMoreClass")
+		if (buttonGebruik.textContent === "Toon meer"){
+			buttonGebruik.textContent = "Toon minder"
+		}
+		else{
+			buttonGebruik.textContent = "Toon meer"
+		}
+	})
+}
+if(buttonWerking) {
+	buttonWerking.addEventListener("click", function(){
+		divWerking.classList.toggle("showMoreClass")
+		if (buttonWerking.textContent === "Toon meer"){
+			buttonWerking.textContent = "Toon minder"
+		}
+	
+		else{
+			buttonWerking.textContent = "Toon meer"
+		}
+	})
+}
+if(buttonExtra) {
+	buttonExtra.addEventListener("click", function(){
+		divExtra.classList.toggle("showMoreClass")
+		if (buttonExtra.textContent === "Toon meer"){
+			buttonExtra.textContent = "Toon minder"
+		}
+	
+		else{
+			buttonExtra.textContent = "Toon meer"
+		}
+	})
+}

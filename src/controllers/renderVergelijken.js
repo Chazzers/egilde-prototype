@@ -210,7 +210,8 @@ const filteredData = [
 	}
 ]
 
-async function renderIndex(req, res) {
+
+async function renderVergelijken(req, res) {
 	const client = contentful.createClient({
 		space: process.env.SPACE_ID,
 		environment: process.env.ENV_ID,
@@ -231,10 +232,10 @@ async function renderIndex(req, res) {
 		return item
 	})
 
-	res.render('index', {
+	res.render('vergelijken', {
 		items: transformedEntries,
 		filteredData: newFilterData
 	})
 }
 
-module.exports = renderIndex
+module.exports = renderVergelijken

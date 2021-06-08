@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express()
+const sassMiddleware = require('node-sass-middleware')
+const path = require('path')
 
 require('dotenv').config()
 
@@ -12,11 +14,16 @@ const renderDomeinTagFilter = require('./src/controllers/renderDomeinTagFilter')
 const renderProductDetails = require('./src/controllers/renderProductDetails')
 const renderSearchPage = require('./src/controllers/renderSearchPage')
 const renderlandingsPage = require('./src/controllers/renderlandingsPage')
+const renderVergelijken = require('./src/controllers/renderVergelijken')
 
 app
 	.set('view engine', 'ejs')
 	.set('views', './src/views')
 
+	.use(sassMiddleware({ 
+		src: path.join(__dirname, './src'), 
+		dest: path.join(__dirname, './src/static')
+	}))
 	.use(express.static('src/static'))
 	.use(express.urlencoded({
 		extended: true 
@@ -29,6 +36,7 @@ app
 	.get('/products/:product', renderProductDetails)
 	.get('/zoek', renderSearchPage)
 	.get('/overview', renderlandingsPage)
+	.get('/vergelijken', renderVergelijken)
 
 	.post('/omaha-domein', postOmahaFilterForm)
 
