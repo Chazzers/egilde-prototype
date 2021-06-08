@@ -10,8 +10,8 @@ async function renderProductDetails(req, res){
     })
 
     const entries =  await client.getEntries({
-        content_type:"eHealthToepassing",
-        "fields.slug[in]":product
+        content_type: "eHealthToepassing",
+        "fields.slug[in]": product
     })
 
     const { items } = entries;

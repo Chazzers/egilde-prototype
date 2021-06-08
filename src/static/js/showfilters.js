@@ -11,9 +11,12 @@ const filters = document.querySelectorAll(".hide")
 const buttonshow  = document.querySelectorAll(".showmorebutton")
 const buttonshowArray  = [...buttonshow]
 
-button.addEventListener("click", function(){
-    fieldset.classList.toggle("showclass")
-})
+
+if(button) {
+	button.addEventListener("click", function(){
+		fieldset.classList.toggle("showclass")
+	})
+}
 
 if(buttonshowArray) {
 	buttonshowArray.forEach(item => item.addEventListener('click', () => {
