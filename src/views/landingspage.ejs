@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<%- include('partials/Head.ejs') %> 
+</head>
+<body>
+	<header class="indexheader">
+		<div class="titlecontainer">
+			<h1>eHealth toepassingen</h1>
+		</div>
+		<div class="buttons">
+			<a href="/"><p id="text"><img src="/images/home.png" alt=""></p></a>
+			<a href="/saved"><p id="text"><img src="/images/fav.png" alt=""></p></a>
+			<a href="/zoek"><p id="text"><img src="/images/search.png" alt=""></p></a>
+		</div>
+	</header>
+	<main class="">
+        <section class="ehealthitemscontainer">
+           <article>Gebruik de OMAHA filter</article>
+           <article>Bekijk alles</article>
+        </section>
+        <h2>Recent bekeken</h2>
+		<section class="ehealthitemscontainer">
+        <% items.forEach(item => { %>
+            <a href="/products/<%= item.fields.slug %>">
+                <article data-id="<%= item.fields.tags %>" data-title="<%= item.fields.slug %>"  class="ehealth-item">
+                    <% if(item.fields.afbeelding) { %>
+                        <img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
+                    <% } %>
+                    <h3><%= item.fields.titel %></h3>
+                    <h5><%= item.fields.tags %></h5>
+                </article>
+            </a>
+        <% }) %>
+		</section>
+	</main>
+</body>
+</html>

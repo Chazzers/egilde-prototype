@@ -394,7 +394,7 @@ const filterData = [
 ]
 
 
-async function renderSearchPage(req, res) {
+async function renderlandingsPage(req, res) {
 	const client = contentful.createClient({
 		space: process.env.SPACE_ID,
 		environment: process.env.ENV_ID,
@@ -417,10 +417,10 @@ async function renderSearchPage(req, res) {
 
 	// console.log(transformedEntries)
 
-	res.render('zoek', {
+	res.render('landingsPage', {
 		items: transformedEntries,
 		filteredData: newFilterData
 	})
 }
 
-module.exports = renderSearchPage
+module.exports = renderlandingsPage

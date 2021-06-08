@@ -415,7 +415,7 @@ async function renderIndex(req, res) {
 		return item
 	})
 
-	console.log(transformedEntries)
+	// console.log(transformedEntries)
 
 	res.render('index', {
 		items: transformedEntries,
