@@ -15,6 +15,7 @@ const postOmahaFilterForm = require('./src/controllers/postOmahaFilterForm')
 const renderDomeinTagFilter = require('./src/controllers/renderDomeinTagFilter')
 const renderProductDetails = require('./src/controllers/renderProductDetails')
 const renderSearchPage = require('./src/controllers/renderSearchPage')
+const renderlandingsPage = require('./src/controllers/renderlandingsPage')
 const renderVergelijken = require('./src/controllers/renderVergelijken')
 
 const uri = process.env.MONGODB_URI
@@ -57,6 +58,7 @@ app
 	.get('/omaha-filter/:domein', renderDomeinTagFilter)
 	.get('/products/:product', renderProductDetails)
 	.get('/zoek', renderSearchPage)
+	.get('/overview', renderlandingsPage)
 	.get('/vergelijken', renderVergelijken)
 
 	.post('/omaha-domein', postOmahaFilterForm)
