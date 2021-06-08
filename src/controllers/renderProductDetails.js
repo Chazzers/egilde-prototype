@@ -3,12 +3,15 @@ const documentToHtmlString = require('@contentful/rich-text-html-renderer').docu
 
 async function renderProductDetails(req, res){
     const { product } = req.params
-	console.log('Cookie before:', req.cookies.recent_bekeken)
-	console.log(req.cookies)
 
 	if(req.cookies.recent_bekeken) {
-		const newCookies = req.cookies.recent_bekeken.concat(product)
-		res.cookie('recent_bekeken', newCookies, { 
+		if(!req.cookies.recent_bekeken.includes(product)) {
+			req.cookies.recent_bekeken.unshift(product)
+		}
+		if(req.cookies.recent_bekeken.length > 3) {
+			req.cookies.recent_bekeken.pop()
+		}
+		res.cookie('recent_bekeken', req.cookies.recent_bekeken, { 
 			expires: new Date(Date.now() + 864000000),
 			overwrite: true
 		})
