@@ -9,7 +9,7 @@ async function renderProductDetails(req, res){
 	if(req.cookies.recent_bekeken) {
 		const newCookies = req.cookies.recent_bekeken.concat(product)
 		res.cookie('recent_bekeken', newCookies, { 
-			expires: new Date(Date.now() + 900000),
+			expires: new Date(Date.now() + 864000000),
 			overwrite: true
 		})
 	}

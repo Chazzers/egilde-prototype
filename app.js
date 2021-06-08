@@ -46,7 +46,7 @@ app
 			res.cookie('recent_bekeken', [],
 				// cookie options
 				{ 
-					expires: new Date(Date.now() + 900000),
+					expires: new Date(Date.now() + 864000000),
 					overwrite: true
 				})
 			}
