@@ -1,8 +1,11 @@
 const contentful = require('contentful')
 const documentToHtmlString = require('@contentful/rich-text-html-renderer').documentToHtmlString
+const MostVisited = require('../models/MostVisited')
 
 async function renderProductDetails(req, res){
     const { product } = req.params
+
+	console.log(MostVisited)
 
 	if(req.cookies.recent_bekeken) {
 		if(!req.cookies.recent_bekeken.includes(product)) {

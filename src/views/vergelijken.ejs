@@ -12,8 +12,10 @@
 	<main class="vergelijken">
 		<form action="">
 			<% items.forEach(item => { %>
-				<input type="checkbox" id="<%= item.fields.slug %>">
-				<label for="<%= item.fields.slug %>"><%= item.fields.titel %></label>
+				<div>
+					<input type="checkbox" id="<%= item.fields.slug %>">
+					<label for="<%= item.fields.slug %>"><%= item.fields.titel %></label>
+				</div>
 			<%})%>
 		</form>
 	</main>
