@@ -3,6 +3,17 @@ const documentToHtmlString = require('@contentful/rich-text-html-renderer').docu
 
 async function renderProductDetails(req, res){
     const { product } = req.params
+	console.log('Cookie before:', req.cookies.recent_bekeken)
+	console.log(req.cookies)
+
+	if(req.cookies.recent_bekeken) {
+		const newCookies = req.cookies.recent_bekeken.concat(product)
+		res.cookie('recent_bekeken', newCookies, { 
+			expires: new Date(Date.now() + 900000),
+			overwrite: true
+		})
+	}
+	
     const client = contentful.createClient({
 		space: process.env.SPACE_ID,
 		environment: process.env.ENV_ID,
