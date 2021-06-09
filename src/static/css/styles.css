@@ -177,6 +177,9 @@ fieldset {
 	max-width: 740px;
 	padding: 1rem;
 	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .omaha-form-button {
@@ -616,6 +619,40 @@ article h5{
 }
 
 
+/* vergelijken */
+
+.vergelijken {
+
+}
+
+.vergelijken .vergelijken-form {
+	
+}
+
+.vergelijken .vergelijken-form .vergelijken-checkbox{
+	display: none;
+}
+
+.vergelijken .vergelijken-form .vergelijken-checkbox:checked + label {
+
+}
+
+.vergelijken .vergelijken-form .vergelijken-label{
+	
+}
+
+.vergelijken .vergelijken-form .vergelijken-submit {
+	
+}
+
+.vergelijken .vergelijken-form .vergelijken-label .ehealth-item{
+	
+}
+
+.vergelijken .vergelijken-form .vergelijken-label .ehealth-item{
+	
+}
+
 /* @media's  */
 
 @media screen and (min-width: 768px) {
@@ -696,3 +733,4 @@ article h5{
 		display: none;
 	}
 }
+

@@ -6,17 +6,30 @@
 <body>
 	<header>
 		<h1>
-
+			Vergelijken
 		</h1>
 	</header>
 	<main class="vergelijken">
-		<form action="">
+		<form class="vergelijken-form" action="/vergelijken" method="POST">
 			<% items.forEach(item => { %>
-				<div>
-					<input type="checkbox" id="<%= item.fields.slug %>">
-					<label for="<%= item.fields.slug %>"><%= item.fields.titel %></label>
-				</div>
+				<input class="vergelijken-checkbox" type="checkbox" id="<%= item.fields.slug %>">
+				<label class="vergelijken-label" for="<%= item.fields.slug %>">
+					<article 
+						data-id="<%= item.fields.tags %>"
+						data-title="<%= item.fields.slug %>"
+						class="ehealth-item"
+						>
+						<% if(item.fields.afbeelding) { %>
+							<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
+						<% } %>
+						<h3><%= item.fields.titel %></h3>
+						<h5><%= item.fields.tags %></h5>
+					</article>
+				</label>
 			<%})%>
+			<button class="vergelijken-submit" type="submit">
+				Vergelijken
+			</button>
 		</form>
 	</main>
 </body>

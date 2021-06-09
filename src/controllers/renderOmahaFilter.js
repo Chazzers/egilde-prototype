@@ -165,10 +165,13 @@ const filterData = [
 ]
 
 function renderOmahaFilter(req, res) {
+	// create new property slug for each domeinTag array item
 	const newFilterData = filterData.map(item => {
 		replaceWhitespaceAndSlashWithHyphen(item.domeinTags, 'tag', 'slug')
 		return item
 	})
+
+	// render this filter data
 	res.render('omaha-filter', {
 		filterData: newFilterData
 	})
