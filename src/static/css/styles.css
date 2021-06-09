@@ -653,7 +653,9 @@ header a {
 }
 
 .vergelijken .vergelijken-form {
-	
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
 .vergelijken .vergelijken-form .vergelijken-checkbox{
@@ -665,7 +667,10 @@ header a {
 }
 
 .vergelijken .vergelijken-form .vergelijken-label{
-	
+	max-width: 350px;
+	width: 30vw;
+	min-width: 250px;
+	display: block;
 }
 
 .vergelijken .vergelijken-form .vergelijken-submit {
