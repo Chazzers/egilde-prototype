@@ -15,7 +15,7 @@ const postOmahaFilterForm = require('./src/controllers/postOmahaFilterForm')
 const renderDomeinTagFilter = require('./src/controllers/renderDomeinTagFilter')
 const renderProductDetails = require('./src/controllers/renderProductDetails')
 const renderSearchPage = require('./src/controllers/renderSearchPage')
-const renderlandingsPage = require('./src/controllers/renderlandingsPage')
+const renderlandingsPage = require('./src/controllers/renderLandingsPage')
 const renderVergelijken = require('./src/controllers/renderVergelijken')
 
 const uri = process.env.MONGODB_URI

@@ -204,7 +204,7 @@ fieldset {
 	grid-template-rows: 150px 1fr;
 	max-width: 1400px;
 	margin: 2% auto 5%;
-	padding: 0 20px;
+	padding: 0;
 }
 
 .titlecontainer{
@@ -573,7 +573,7 @@ article h5{
 	grid-template-rows: 1fr 1fr;
 	max-width: 1400px;;
 	margin: 2% auto 5%;
-	padding: 0 20px;
+	padding: 0;
 	background-color: transparent;
 }
 
@@ -696,9 +696,9 @@ header a {
 .landingspage h2{
 	font-weight: lighter;
 	text-align: center;
-	width: 600px;
+	max-width: 600px;
 	margin: 20px auto;
-	font-size: 2.5em;
+	font-size: 8vw;
 }
 
 .landingspage h3{
@@ -787,6 +787,7 @@ header a {
 	.indexheader{
 		grid-template-columns: 1fr 450px;
 		grid-template-rows: 1fr;
+		padding: 0 20px;
 	}
 
 	.detailPageHeader{
@@ -799,6 +800,7 @@ header a {
 		display: grid;
 		grid-template-columns: 450px 1fr;
 		grid-template-rows: 1fr;
+		padding: 0 20px;
 	}
 
 	.indexPage .titlecontainer{
@@ -816,6 +818,10 @@ header a {
 
 	.recentlyviewed article {
 		width: 350px;
+	}
+
+	.landingspage h2{
+		font-size: 40px;
 	}
 	
 }
