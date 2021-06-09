@@ -27,7 +27,7 @@ async function renderProductDetails(req, res){
 		if(!req.cookies.recent_bekeken.includes(product)) {
 			req.cookies.recent_bekeken.unshift(product)
 		}
-		if(req.cookies.recent_bekeken.length > 3) {
+		if(req.cookies.recent_bekeken.length > 5) {
 			req.cookies.recent_bekeken.pop()
 		}
 		res.cookie('recent_bekeken', req.cookies.recent_bekeken, { 
