@@ -394,6 +394,7 @@ const filterData = [
 ]
 
 
+
 async function renderSearchPage(req, res) {
 	const client = contentful.createClient({
 		space: process.env.SPACE_ID,
@@ -401,21 +402,27 @@ async function renderSearchPage(req, res) {
 		accessToken: process.env.API_KEY
 	})
 
+	const cookies = req.cookies.recent_bekeken
+
 	const entries =  await client.getEntries()
 
 	const { items } = entries
+
+	let recentlyVisited = items
+
+	if(cookies) {
+		recentlyVisited = items.filter(item => cookies.includes(item.fields.slug))
+	}
 
 	const newFilterData = filteredData.map(item => {
 		replaceWhitespaceAndSlashWithHyphen(item.domeinTags, 'tag', 'slug')
 		return item
 	})
 
-	const transformedEntries = items.map(item => {
+	const transformedEntries = recentlyVisited.map(item => {
 		item.fields.tags = replaceWhitespaceAndSlashWithHyphen(item.fields.tags)
 		return item
 	})
-
-	// console.log(transformedEntries)
 
 	res.render('zoek', {
 		items: transformedEntries,

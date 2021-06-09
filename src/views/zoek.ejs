@@ -11,8 +11,20 @@
 	</header>
 	<main class="zoekPage">
         <a href="/">Terug</a>
-        <section>
+        <section class="ehealthitemscontainer">
             <h2>Recent gezocht of bekeken</h2>
+			<% for( let index = 0; index < items.length; index++ ) { %>
+				<a href="/products/<%= items[index].fields.slug %>">
+					<article data-id="<%= items[index].fields.tags %>" data-title="<%= items[index].fields.slug %>"  class="ehealth-item">
+						<% if(items[index].fields.afbeelding) { %>
+							<img src="<%= items[index].fields.afbeelding.fields.file.url %>" alt="">
+						<% } %>
+						<h3><%= items[index].fields.titel %></h3>
+						<h5><%= items[index].fields.tags %></h5>
+					</article>
+				</a>
+			<% } %>
+        </section>
         <section>
             <h2>Opgeslagen</h2>
         </section>
