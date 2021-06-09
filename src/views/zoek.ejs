@@ -7,7 +7,13 @@
 	<header class="zoekheader">
 		<div id="wrap">
 			<form action="/" autocomplete="on" id="zoek-form">
-				<input id="search" name="search" type="text" placeholder="Wat zoek je?"><input id="search_submit" value="Rechercher" type="submit">
+				<input list="search" id="search-choice" name="searchChoice">
+				<datalist id="search">
+					<% items.forEach(item => { %>
+						<option value="<%= item.fields.titel %>">
+					<% }) %>
+				</datalist>
+				<input id="search_submit" value="Rechercher" type="submit">
 			</form>
 		</div>
 		<div class="buttons">
@@ -17,6 +23,19 @@
 		</div>
 	</header>
 	<main class="landingspage">
+		<section class="ehealthitemscontainer">
+			<% items.forEach(item => { %>
+				<a href="/products/<%= item.fields.slug %>">
+					<article data-id="<%= item.fields.tags %>" data-title="<%= item.fields.slug %>"  class="ehealth-item">
+						<% if(item.fields.afbeelding) { %>
+							<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
+						<% } %>
+						<h3><%= item.fields.titel %></h3>
+						<h5><%= item.fields.tags %></h5>
+					</article>
+				</a>
+			<% }) %>
+		</section>
 		<h3>Recent gezocht</h3>
 		<section class="recentlyviewed">
 			<% for( let index = 0; index < items.length; index++ ) { %>

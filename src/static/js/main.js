@@ -5,7 +5,7 @@ const omahaFieldsets = document.querySelectorAll('.omaha-form fieldset')
 const omahaSubmit = document.getElementById('omaha-submit')
 const ehealthItems = document.querySelectorAll('.ehealth-item')
 const zoekForm = document.getElementById('zoek-form')
-const search = document.getElementById('search')
+const search = document.getElementById('searchChoice')
 // Spread operator, can be used to transform a node list to an array, this way you can use all the array methods like: array.filter, array.map, array.forEach etc.
 if(next) {
 	const omahaDomeinInputArray = [...omahaDomeinInput]
@@ -54,12 +54,12 @@ if(zoekForm) {
 	zoekForm.addEventListener('submit', async (event) => {
 		event.preventDefault()
 
+		console.log(search)
+
 		const eHealthItemsArray = [...ehealthItems]
 		const searchValue = cleanUp(search.value).toLowerCase()
 		const titles = eHealthItemsArray.map(item => item.dataset.title)
 		const tags = eHealthItemsArray.map(item => item.dataset.id.split(','))
-
-		console.log(tags)
 
 		if(titles.includes(searchValue)) {
 			eHealthItemsArray.forEach(item => item.classList.remove('hide-ehealth'))
