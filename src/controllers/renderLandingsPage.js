@@ -432,7 +432,7 @@ async function renderlandingsPage(req, res) {
 	})
 
 	// render landingspage
-	res.render('landingsPage', {
+	res.render('landingspage', {
 		items: transformedEntries,
 		filteredData: newFilterData
 	})
