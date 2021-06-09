@@ -9,8 +9,11 @@
 			<form action="/" autocomplete="on" id="zoek-form">
 				<input list="search" id="search-choice" name="searchChoice">
 				<datalist id="search">
-					<% items.forEach(item => { %>
+					<% allItems.forEach(item => { %>
 						<option value="<%= item.fields.titel %>">
+					<% }) %>
+					<% allTags.forEach(tag => { %>
+						<option value="<%= tag %>">
 					<% }) %>
 				</datalist>
 				<input id="search_submit" value="Rechercher" type="submit">
@@ -24,56 +27,56 @@
 	</header>
 	<main class="landingspage">
 		<section class="ehealthitemscontainer">
-			<% items.forEach(item => { %>
+			<% allItems.forEach(item => { %>
 				<a href="/products/<%= item.fields.slug %>">
-					<article data-id="<%= item.fields.tags %>" data-title="<%= item.fields.slug %>"  class="ehealth-item">
+					<article data-id="<%= item.fields.newTags %>" data-title="<%= item.fields.slug %>"  class="ehealth-item">
 						<% if(item.fields.afbeelding) { %>
 							<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
 						<% } %>
 						<h3><%= item.fields.titel %></h3>
-						<h5><%= item.fields.tags %></h5>
+						<h5><%= item.fields.newTags %></h5>
 					</article>
 				</a>
 			<% }) %>
 		</section>
 		<h3>Recent gezocht</h3>
 		<section class="recentlyviewed">
-			<% for( let index = 0; index < items.length; index++ ) { %>
-				<a href="/products/<%= items[index].fields.slug %>">
-					<article data-id="<%= items[index].fields.tags %>" data-title="<%= items[index].fields.slug %>"  class="ehealth-item">
-						<% if(items[index].fields.afbeelding) { %>
-							<img src="<%= items[index].fields.afbeelding.fields.file.url %>" alt="">
+			<% for( let index = 0; index < recentItems.length; index++ ) { %>
+				<a href="/products/<%= recentItems[index].fields.slug %>">
+					<article data-id="<%= recentItems[index].fields.newTags %>" data-title="<%= recentItems[index].fields.slug %>"  class="ehealth-item">
+						<% if(recentItems[index].fields.afbeelding) { %>
+							<img src="<%= recentItems[index].fields.afbeelding.fields.file.url %>" alt="">
 						<% } %>
-						<h3><%= items[index].fields.titel %></h3>
-						<h5><%= items[index].fields.tags %></h5>
+						<h3><%= recentItems[index].fields.titel %></h3>
+						<h5><%= recentItems[index].fields.newTags %></h5>
 					</article>
 				</a>
 			<% } %>
 		</section>
         <h3>Recent bekeken</h3>
 		<section class="recentlyviewed">
-			<% for( let index = 0; index < items.length; index++ ) { %>
-				<a href="/products/<%= items[index].fields.slug %>">
-					<article data-id="<%= items[index].fields.tags %>" data-title="<%= items[index].fields.slug %>"  class="ehealth-item">
-						<% if(items[index].fields.afbeelding) { %>
-							<img src="<%= items[index].fields.afbeelding.fields.file.url %>" alt="">
+			<% for( let index = 0; index < recentItems.length; index++ ) { %>
+				<a href="/products/<%= recentItems[index].fields.slug %>">
+					<article data-id="<%= recentItems[index].fields.newTags %>" data-title="<%= recentItems[index].fields.slug %>"  class="ehealth-item">
+						<% if(recentItems[index].fields.afbeelding) { %>
+							<img src="<%= recentItems[index].fields.afbeelding.fields.file.url %>" alt="">
 						<% } %>
-						<h3><%= items[index].fields.titel %></h3>
-						<h5><%= items[index].fields.tags %></h5>
+						<h3><%= recentItems[index].fields.titel %></h3>
+						<h5><%= recentItems[index].fields.newTags %></h5>
 					</article>
 				</a>
 			<% } %>
 		</section>
 		<h3>Populair</h3>
 		<section class="recentlyviewed">
-			<% for( let index = 0; index < items.length; index++ ) { %>
-				<a href="/products/<%= items[index].fields.slug %>">
-					<article data-id="<%= items[index].fields.tags %>" data-title="<%= items[index].fields.slug %>"  class="ehealth-item">
-						<% if(items[index].fields.afbeelding) { %>
-							<img src="<%= items[index].fields.afbeelding.fields.file.url %>" alt="">
+			<% for( let index = 0; index < recentItems.length; index++ ) { %>
+				<a href="/products/<%= recentItems[index].fields.slug %>">
+					<article data-id="<%= recentItems[index].fields.newTags %>" data-title="<%= recentItems[index].fields.slug %>"  class="ehealth-item">
+						<% if(recentItems[index].fields.afbeelding) { %>
+							<img src="<%= recentItems[index].fields.afbeelding.fields.file.url %>" alt="">
 						<% } %>
-						<h3><%= items[index].fields.titel %></h3>
-						<h5><%= items[index].fields.tags %></h5>
+						<h3><%= recentItems[index].fields.titel %></h3>
+						<h5><%= recentItems[index].fields.newTags %></h5>
 					</article>
 				</a>
 			<% } %>

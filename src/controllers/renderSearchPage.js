@@ -234,14 +234,25 @@ async function renderSearchPage(req, res) {
 		return item
 	})
 
-	const transformedEntries = recentlyVisited.map(item => {
-		item.fields.tags = replaceWhitespaceAndSlashWithHyphen(item.fields.tags)
+	const recentEntries = recentlyVisited.map(item => {
+		item.fields.newTags = replaceWhitespaceAndSlashWithHyphen(item.fields.tags)
 		return item
 	})
 
+	const allEntries = items.map(item => {
+		item.fields.newTags = replaceWhitespaceAndSlashWithHyphen(item.fields.tags)
+		return item
+	})
+
+	const allTags = items.map(item => item.fields.tags)
+	const allTagsWithDupes = [].concat.apply([], allTags)
+	const allTagsNoDupes = [...new Set(allTagsWithDupes)]
+
 	res.render('zoek', {
-		items: transformedEntries,
+		recentItems: recentEntries,
 		filteredData: newFilterData,
+		allItems: allEntries,
+		allTags: allTagsNoDupes
 	})
 }
 
