@@ -6,21 +6,36 @@
 <body>
 	<header class="indexheader">
 		<div class="titlecontainer">
-			<h1>eHealth toepassingen</h1>
+			<h1>eGilde</h1>
 		</div>
 		<div class="buttons">
-			<a href="/"><p id="text"><img src="/images/home.png" alt=""></p></a>
-			<a href="/saved"><p id="text"><img src="/images/fav.png" alt=""></p></a>
-			<a href="/zoek"><p id="text"><img src="/images/search.png" alt=""></p></a>
+			<a href="/overview"><p class="active" id="text">home</p></a>
+			<a href="/"><p id="text">productenklapper</p></a>
+			<a href="/zoek"><p id="text">zoek</p></a>
 		</div>
 	</header>
-	<main class="">
-        <section class="ehealthitemscontainer">
-           <article>Gebruik de OMAHA filter</article>
-           <article>Bekijk alles</article>
+	<main class="landingspage">
+		<h2>Vind passende eHealth toepassingen voor uw client</h2>
+        <section class="calltoaction">
+           <article><a href="/omaha-filter">Gebruik de OMAHA filter</a></article>
+           <article><a href="/">Bekijk het aanbod</a></article>
         </section>
-        <h2>Recent bekeken</h2>
-		<section class="ehealthitemscontainer">
+        <h3>Recent bekeken</h3>
+		<section class="recentlyviewed">
+			<% for( let index = 0; index < items.length; index++ ) { %>
+				<a href="/products/<%= items[index].fields.slug %>">
+					<article data-id="<%= items[index].fields.tags %>" data-title="<%= items[index].fields.slug %>"  class="ehealth-item">
+						<% if(items[index].fields.afbeelding) { %>
+							<img src="<%= items[index].fields.afbeelding.fields.file.url %>" alt="">
+						<% } %>
+						<h3><%= items[index].fields.titel %></h3>
+						<h5><%= items[index].fields.tags %></h5>
+					</article>
+				</a>
+			<% } %>
+		</section>
+		<h3>Populair</h3>
+		<section class="recentlyviewed">
 			<% for( let index = 0; index < items.length; index++ ) { %>
 				<a href="/products/<%= items[index].fields.slug %>">
 					<article data-id="<%= items[index].fields.tags %>" data-title="<%= items[index].fields.slug %>"  class="ehealth-item">

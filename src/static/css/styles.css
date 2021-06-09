@@ -202,8 +202,8 @@ fieldset {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 150px 1fr;
-	max-width: 1400px;;
-	margin: 5% auto 0;
+	max-width: 1400px;
+	margin: 2% auto 5%;
 	padding: 0 20px;
 }
 
@@ -222,6 +222,7 @@ fieldset {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
+	justify-content: center;
 }
 
 main.indexPage{
@@ -279,7 +280,7 @@ main.indexPage{
 
 .indexheader a{
 	padding: 0;
-	margin-top: 0
+	margin: auto 0;
 }
 
 .indexPage section label{
@@ -304,8 +305,8 @@ main.indexPage{
 .indexheader a p{
 	cursor: pointer;
 	color: black;
-	padding: 5px 20px;
-	font-size: 20px;
+	padding: 5px 10px;
+	font-size: 18px;
 	font-weight:100;
 	margin: 0px;
 }
@@ -365,9 +366,12 @@ div.filterbox{
 	background-color: var(--third-color);
 }
 
+.indexPage article{
+	width: 350px;
+}
+
 /* article */
 article{
-	width: 320px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -451,7 +455,7 @@ article h5{
 .detailPageHeader{
 	display: block;
 	max-width: 1200px;
-	margin: 5% auto 0;
+	margin: 2% auto 5%;
 }
 
 .detailPage article h2 {
@@ -549,7 +553,7 @@ article h5{
 
 .zoekPage{
 	margin: 0 auto;
-	max-width: 1400px;
+	max-width: 1000px;
 }
 
 .zoekPage h2{
@@ -562,20 +566,43 @@ article h5{
 
 
 
-/* zoekbalk */ 
+/* zoek header */
+.zoekheader{
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr;
+	max-width: 1400px;;
+	margin: 2% auto 5%;
+	padding: 0 20px;
+	background-color: transparent;
+}
+
+.zoekheader a p{
+	cursor: pointer;
+	color: black;
+	padding: 0px 10px;
+	font-size: 18px;
+	font-weight:100;
+	margin: auto 0;
+}
+
+.zoekheader a{
+	margin: auto 0;
+}
+
+header a {
+	margin: auto 0;
+}
+
 
 #wrap {
 	max-width: 1400px;
 	margin: 5px auto;
 	display: block;
-	position: relative;
 	height: 60px;
-	top: 0;
-	left: 100;
 	padding: 0;
 	position: relative;
-	grid-column: 1/2;
-	grid-row: 2/3;
+	background-color: transparent;
 }
   
 #wrap input[type="text"] {
@@ -589,13 +616,13 @@ article h5{
 	color: #555;
 	padding: 3px;
 	padding-right: 60px;
-	position: absolute;
 	top: 0;
-	right: 100;
+	left: 0;
 	width: 100%;
 	z-index: 1;
 	border-bottom: 1px solid #BBB;
 	cursor: text;
+	background-color: transparent;
 }
 
 
@@ -653,6 +680,86 @@ article h5{
 	
 }
 
+
+/* landingspage */
+
+.landingspage{
+	margin: 0 auto;
+	max-width: 1200px;
+}
+
+.landingspage h2{
+	font-weight: lighter;
+	text-align: center;
+	width: 600px;
+	margin: 20px auto;
+	font-size: 2.5em;
+}
+
+.landingspage h3{
+	font-weight: lighter;
+	text-align: left;
+	font-size: 2em;
+}
+
+.landingspage section h3{
+	opacity: 1;
+	text-align: center;
+	color: white;
+	margin: 0px;
+	padding: 10px;
+	font-weight: 500;
+	font-size: 16px;
+	text-align: left;
+	position: absolute;
+	top:0;
+	left: 0;
+}
+
+.recentlyviewed{
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	margin: 0 auto auto;
+	overflow-x: scroll;
+}
+
+.recentlyviewed article {
+	width: 200px;
+	margin: 5px;;
+}
+
+.recentlyviewed img{
+	width:100%;
+}
+
+.calltoaction{
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	margin: 0 auto auto auto;
+	max-width: 1200px;
+}
+
+.calltoaction article{
+	height: 60px;
+	background-color: var(--second-color);
+	padding: 5px;
+	min-width: 150px;;
+	border-radius: 50px;
+	width: 20vw;
+	margin: 10px;
+}
+
+.calltoaction article a{
+	color: white;
+}
+
+
+
+.active {
+	text-decoration: underline;
+}
 /* @media's  */
 
 @media screen and (min-width: 768px) {
@@ -673,15 +780,19 @@ article h5{
 	}
 
 	.indexheader{
-		height: 100px;
-		grid-template-columns: 1fr 250px;
+		grid-template-columns: 1fr 450px;
 		grid-template-rows: 1fr;
 	}
 
 	.detailPageHeader{
 		display: grid;
-		height: 100px;
 		grid-template-columns: 1fr 150px;
+		grid-template-rows: 1fr;
+	}
+
+	.zoekheader{
+		display: grid;
+		grid-template-columns: 450px 1fr;
 		grid-template-rows: 1fr;
 	}
 
@@ -689,10 +800,19 @@ article h5{
 		height: 100px;
 	}
 
-	#wrap{
-		grid-column: 2/3;
-		grid-row: 1/2;
+	.buttons{
+		justify-content: flex-end;
 	}
+
+	.recentlyviewed{
+		flex-wrap: nowrap;
+		justify-content: space-between;
+	}
+
+	.recentlyviewed article {
+		width: 350px;
+	}
+	
 }
 
 

@@ -33,8 +33,7 @@ async function renderProductDetails(req, res){
 			// add the slug at the front of the array for most recent visit
 			req.cookies.recent_bekeken.unshift(product)
 		}
-		if(req.cookies.recent_bekeken.length > 3) {
-			// to keep only the maximum of three array values in the cookie, remove the last array element when the length exceeds three
+		if(req.cookies.recent_bekeken.length > 5) {
 			req.cookies.recent_bekeken.pop()
 		}
 		// update the cookie, add overwrite true to make it so the cookie can be updated
