@@ -798,10 +798,6 @@ header a {
 }
 
 
-
-.active {
-	text-decoration: underline;
-}
 /* @media's  */
 
 @media screen and (min-width: 768px) {
