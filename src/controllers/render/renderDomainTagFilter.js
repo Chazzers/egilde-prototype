@@ -6,58 +6,76 @@ const filterData = [
 		id: 'fysiologisch',
 		domeinTags: [
 			{
-				tag:'Ademhaling'
+				tag:'Ademhaling',
+				image: "/images/ademhaling.png"
 			},
 			{
-				tag:'Besmettelijke / infectieuze conditie'
+				tag:'Besmettelijke / infectieuze conditie',
+				image: "/images/besmettelijk.png"
 			},
 			{
-				tag:'Bewustzijn'
+				tag:'Bewustzijn',
+				image: "/images/bewust.png"
 			},
 			{
-				tag:'Circulatie'
+				tag:'Circulatie',
+				image: "/images/circulatie.png"
 			},
 			{
-				tag:'Cognitie'
+				tag:'Cognitie',
+				image: "/images/cognitie.png"
 			},
 			{
-				tag:'Darmfunctie'
+				tag:'Darmfunctie',
+				image: "/images/darm.png"
 			},
 			{
-				tag:'Gehoor'
+				tag:'Gehoor',
+				image: "/images/gehoor.png"
 			},
 			{
 				tag:'Geslachtsorganen',
+				image: "/images/geslacht.png"
 			},
 			{
 				tag:'Huid',
+				image: "/images/huid.png"
 			},
 			{
 				tag:'Mondgezondheid',
+				image: "/images/mond.png"
 			},
 			{
 				tag:'Neuro/ musculaire/ skelet-functie',
+				image: "/images/skelet.png"
 			},
 			{
 				tag:'Pijn Domein',
+				image: "/images/pijn.png"
 			},
 			{
 				tag:'Postnataal',
+				image: "/images/postnataal.png"
 			},
 			{
 				tag:'Spijsvertering - vochthuishouding',
+				image: "/images/spijsvertering.png"
 			},
 			{
 				tag:'Spraak en taal domein',
+				image: "/images/spraak.png"
 			},
 			{
 				tag:'Urineweg-functie',
+				image: "/images/urine.png"
 			},
 			{
 				tag:'Zicht',
+				image: "/images/zicht.png"
 			},
 			{
-				tag:'Zwangerschap'
+				tag:'Zwangerschap',
+				image: "/images/zwangerschap.png"
 			}
 		]
 	}, {
@@ -65,40 +83,52 @@ const filterData = [
 		id: 'psychosociaal',
 		domeinTags: [
 			{
-				tag:'Communicatie met maatschappelijke voorzieningen'
+				tag:'Communicatie met maatschappelijke voorzieningen',
+				image: "/images/communicatie.png"
 			},
 			{
-				tag:'Geestelijke gezondheid'
+				tag:'Geestelijke gezondheid',
+				image: "/images/geestelijk.png"
 			},
 			{
-				tag:'Groei en ontwikkeling'
+				tag:'Groei en ontwikkeling',
+				image: "/images/groei.png"
 			},
 			{
-				tag:'Interpersoonlijke relaties'
+				tag:'Interpersoonlijke relaties',
+				image: "/images/relaties.png"
 			},
 			{
-				tag:'Mantelzorg / zorg voor kind of huisgenoot'
+				tag:'Mantelzorg / zorg voor kind of huisgenoot',
+				image: "/images/zorg.png"
 			},
 			{
-				tag:'Mishandeling / misbruik'
+				tag:'Mishandeling / misbruik',
+				image: "/images/mishandeling.png"
 			},
 			{
-				tag:'Rolverandering'
+				tag:'Rolverandering',
+				image: "/images/rolverandering.png"
 			},
 			{
-				tag:'Rouw'
+				tag:'Rouw',
+				image: "/images/rouw.png"
 			},
 			{
-				tag:'Seksualiteit'
+				tag:'Seksualiteit',
+				image: "/images/geslacht.png"
 			},
 			{
-				tag:'Sociaal contact'
+				tag:'Sociaal contact',
+				image: "/images/contact.png"
 			},
 			{
-				tag:'Spiritualiteit'
+				tag:'Spiritualiteit',
+				image: "/images/spiritualiteit.png"
 			},
 			{
-				tag:'Verwaarlozing'
+				tag:'Verwaarlozing',
+				image: "/images/verwaarlozing.png"
 			}
 		]
 	}, {
@@ -106,16 +136,20 @@ const filterData = [
 		id: 'omgevings',
 		domeinTags: [
 			{
-				tag:'Buurt / werkplek veiligheid'
+				tag:'Buurt / werkplek veiligheid',
+				image: "/images/buurt.png"
 			},
 			{
-				tag:'Inkomen / financiën'
+				tag:'Inkomen / financiën',
+				image: "/images/inkomen.png"
 			},
 			{
-				tag:'Omgevings-hygiëne'
+				tag:'Omgevings-hygiëne',
+				image: "/images/hygiene.png"
 			},
 			{
-				tag:'Woning'
+				tag:'Woning',
+				image: "/images/woning.png"
 			}
 		]
 	}, {
@@ -123,22 +157,28 @@ const filterData = [
 		id: 'gezondheidsgerelateerd',
 		domeinTags: [
 			{
-				tag:'Fysieke activiteit'
+				tag:'Fysieke activiteit',
+				image: "/images/activiteit.png"
 			},
 			{
-				tag:'Gebruik van verslavende middelen'
+				tag:'Gebruik van verslavende middelen',
+				image: "/images/verslaving.png"
 			},
 			{
-				tag:'Gezinsplanning'
+				tag:'Gezinsplanning',
+				image: "/images/gezin.png"
 			},
 			{
-				tag:'Gezondheidszorg supervisie'
+				tag:'Gezondheidszorg supervisie',
+				image: "/images/zorg.png"
 			},
 			{
-				tag:'Medicatie'
+				tag:'Medicatie',
+				image: "/images/medicatie.png"
 			},
 			{
-				tag:'Voeding'
+				tag:'Voeding',
+				image: "/images/voeding.png"
 			}
 		]
 	}, {
@@ -146,19 +186,24 @@ const filterData = [
 		id: 'risicofactoren',
 		domeinTags: [
 			{
-				tag:'Valpreventie'
+				tag:'Valpreventie',
+				image: "/images/valpreventie.png"
 			},
 			{
-				tag:'Ondervoeding'
+				tag:'Ondervoeding',
+				image: "/images/ondervoeding.png"
 			},
 			{
-				tag:'Depressie'
+				tag:'Depressie',
+				image: "/images/depressie.png"
 			},
 			{
-				tag:'Incontinentie'
+				tag:'Incontinentie',
+				image: "/images/urine.png"
 			},
 			{
-				tag:'Decubitus'
+				tag:'Decubitus',
+				image: "/images/decubitus.png"
 			}
 		]
 	}

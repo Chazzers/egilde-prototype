@@ -4,9 +4,10 @@ const filterData = [
 	{
 		domein: 'Fysiologisch Domein',
 		id: 'fysiologisch',
+		img: "/images/bodyicon.png",
 		domeinTags: [
 			{
-				tag:'Ademhaling'
+				tag:'Ademhaling',
 			},
 			{
 				tag:'Besmettelijke / infectieuze conditie'
@@ -63,6 +64,7 @@ const filterData = [
 	}, {
 		domein: 'Psychosociaal Domein',
 		id: 'psychosociaal',
+		img: "/images/logo-brain.png",
 		domeinTags: [
 			{
 				tag:'Communicatie met maatschappelijke voorzieningen'
@@ -104,6 +106,7 @@ const filterData = [
 	}, {
 		domein: 'Omgevings-Domein',
 		id: 'omgevings',
+		img: "/images/world.icon.png",
 		domeinTags: [
 			{
 				tag:'Buurt / werkplek veiligheid'
@@ -121,6 +124,7 @@ const filterData = [
 	}, {
 		domein: 'Gezondheids-gerelateerd Gedrags-Domein',
 		id: 'gezondheidsgerelateerd',
+		img: "/images/healthIcon.png",
 		domeinTags: [
 			{
 				tag:'Fysieke activiteit'
@@ -144,6 +148,7 @@ const filterData = [
 	}, {
 		domein: 'Risicofactoren',
 		id: 'risicofactoren',
+		img: "/images/icon.risk.png",
 		domeinTags: [
 			{
 				tag:'Valpreventie'

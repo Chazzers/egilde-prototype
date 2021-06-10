@@ -4,23 +4,36 @@
 	<%- include('partials/Head.ejs') %> 
 </head>
 <body class="omahaPage">
-	<header>
-		<h1>
-			Omaha filter
-		</h1>
-		<h2>
-			Kies een van de domeinen
-		</h2>
+	<header class="indexheader">
+		<div class="titlecontainer">
+			<h1>OMAHA filter</h1>
+		</div>
+		<div class="buttons">
+			<%- include('partials/HeaderNav.ejs') %>
+		</div>
 	</header>
-	<main class="omaha">
+	<main>
+		<div class="steps">
+			<article>1</article>
+			<article>2</article>
+		</div>
+		<h2>
+			Kies een van de domeinen om op te filteren
+		</h2>
+		<section class="omaha">
 			<% filterData.forEach(item => { %>
+				<div>
 				<a 
 					class="omaha-domein-label" 
 					href="/omaha-filter/<%= item.id %>"
 				>
-					<%= item.domein %>
+				<img src="<%= item.img %>" alt="">
 				</a>
+				<p><%= item.domein %></p>
+			</div>
 			<% }) %>
+		</section>
+			
 	</main>
 </body>
 </html>
