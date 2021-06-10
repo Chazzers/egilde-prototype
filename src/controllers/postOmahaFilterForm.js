@@ -5,7 +5,7 @@ function postOmahaFilterForm(req, res) {
 		domeinTags: domeinTags,
 	})
 
-	const url = `/?${searchParams}`
+	const url = `/producten?${searchParams}`
 
 	res.redirect(url)
 	res.end()

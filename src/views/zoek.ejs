@@ -7,7 +7,7 @@
 	<header class="zoekheader">
 		<div id="wrap">
 			<form action="/" autocomplete="on" id="zoek-form">
-				<input list="search" id="search-choice" name="searchChoice">
+				<input list="search" id="search-choice" name="searchChoice" placeholder="Wat zoekt u?">
 				<datalist id="search">
 					<% allItems.forEach(item => { %>
 						<option value="<%= item.fields.titel %>">
@@ -20,8 +20,8 @@
 			</form>
 		</div>
 		<div class="buttons">
-			<a href="/overview"><p id="text">home</p></a>
-			<a href="/"><p id="text">productenklapper</p></a>
+			<a href="/"><p id="text">home</p></a>
+			<a href="/producten"><p id="text">producten</p></a>
 			<a href="/zoek"><p class="active" id="text">zoek</p></a>
 		</div>
 	</header>
@@ -39,35 +39,7 @@
 				</a>
 			<% }) %>
 		</section>
-		<h3>Recent gezocht</h3>
-		<section class="recentlyviewed">
-			<% for( let index = 0; index < recentItems.length; index++ ) { %>
-				<a href="/products/<%= recentItems[index].fields.slug %>">
-					<article data-id="<%= recentItems[index].fields.newTags %>" data-title="<%= recentItems[index].fields.slug %>"  class="ehealth-item">
-						<% if(recentItems[index].fields.afbeelding) { %>
-							<img src="<%= recentItems[index].fields.afbeelding.fields.file.url %>" alt="">
-						<% } %>
-						<h3><%= recentItems[index].fields.titel %></h3>
-						<h5><%= recentItems[index].fields.newTags %></h5>
-					</article>
-				</a>
-			<% } %>
-		</section>
         <h3>Recent bekeken</h3>
-		<section class="recentlyviewed">
-			<% for( let index = 0; index < recentItems.length; index++ ) { %>
-				<a href="/products/<%= recentItems[index].fields.slug %>">
-					<article data-id="<%= recentItems[index].fields.newTags %>" data-title="<%= recentItems[index].fields.slug %>"  class="ehealth-item">
-						<% if(recentItems[index].fields.afbeelding) { %>
-							<img src="<%= recentItems[index].fields.afbeelding.fields.file.url %>" alt="">
-						<% } %>
-						<h3><%= recentItems[index].fields.titel %></h3>
-						<h5><%= recentItems[index].fields.newTags %></h5>
-					</article>
-				</a>
-			<% } %>
-		</section>
-		<h3>Populair</h3>
 		<section class="recentlyviewed">
 			<% for( let index = 0; index < recentItems.length; index++ ) { %>
 				<a href="/products/<%= recentItems[index].fields.slug %>">

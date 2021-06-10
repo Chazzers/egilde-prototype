@@ -53,12 +53,12 @@ app
 		next()
 	})
 	
-	.get('/', renderIndex)
+	.get('/producten', renderIndex)
 	.get('/omaha-filter', renderOmahaFilter)
 	.get('/omaha-filter/:domein', renderDomeinTagFilter)
 	.get('/products/:product', renderProductDetails)
 	.get('/zoek', renderSearchPage)
-	.get('/overview', renderlandingsPage)
+	.get('/', renderlandingsPage)
 	.get('/vergelijken', renderVergelijken)
 
 	.post('/omaha-domein', postOmahaFilterForm)
