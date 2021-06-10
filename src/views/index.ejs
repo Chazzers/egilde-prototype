@@ -21,7 +21,7 @@
         <h3>Recent bekeken</h3>
 		<section class="recentlyviewed">
 			<% for( let index = 0; index < items.length; index++ ) { %>
-				<a href="/producten/<%= items[index].fields.slug %>">
+				<a href="/products/<%= items[index].fields.slug %>">
 					<article data-id="<%= items[index].fields.tags %>" data-title="<%= items[index].fields.slug %>"  class="ehealth-item">
 						<% if(items[index].fields.afbeelding) { %>
 							<img src="<%= items[index].fields.afbeelding.fields.file.url %>" alt="">
@@ -31,6 +31,37 @@
 					</article>
 				</a>
 			<% } %>
+		</section>
+		<a class="meer-icon" href="#meer">
+			<img src="/images/meer.png" alt="">
+			<p>meer over eGilde</p>
+		</a>
+		<h3 id="meer" class="title">De productenklapper</h3>
+		<section class="moreInfo">
+			<div>
+				<h4>Waarom de productenklapper?</h4>
+				<p>Op dit moment worden veel technologische innovaties in de zorg niet gebruikt, omdat het implementatie proces niet soepel verloopt. Zorgmedewerkers hebben vaak al veel aan hun hoofd, lopen al met allerlei apparatuur en willen dan niet ook nog een heel boekwerk aan verschillende eHealth toepassingen bij zich dragen. Door dit te digitaliseren wordt de productenklapper veel toegankelijker. Vaak ook omdat veel zorgmedewerkers al werken met tablets en mobiele telefoons.</p>
+			</div>	
+			<div>
+				<h4>Wat kun je vinden in de productenklapper?</h4>
+				<p>In deze productklapper staan eHealth toepassingen die cliënten moeten helpen in het dagelijkse leven. Denk aan kleine sensoren die geplaatst worden om vallen bij ouderen te voorkomen of bijvoorbeeld een smartwatch met agenda die ouderen met geheugen moet helpen.</p>
+			</div>
+			<div>
+				<h4>Hoe werkt de productenklapper?</h4>
+				<p>De digitale productenklapper is makkelijk te gebruiken. Door slim filteren en zoeken kun je snel een gesschikte eHealth toepassing vinden voor uw client. Je kunt starten door de OMAHA filter te gebruiken. Hier door loop je 2 stappen om te filteren. Je kunt ook direct alle eHealth toepassingen bekijken. Eenmaal op de productenpagina kun je filters aanpassen, producten zoeken en met elkaar vergelijken.</p>
+			</div>
+			<div>
+				<h5>Instructie OMAHA filter</h5>
+				<img src="/images/filterpagina.png" alt="">
+			</div>
+			<div>
+				<h5>Instructie producten pagina</h5>
+				<img src="/images/productenpagina.png" alt="">
+			</div>
+			<div>
+				<h5>Instructie zoek pagina</h5>
+				<img src="/images/zoekpagina.png" alt="">
+			</div>
 		</section>
 	</main>
 </body>
