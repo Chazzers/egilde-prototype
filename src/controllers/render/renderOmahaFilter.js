@@ -1,4 +1,4 @@
-const replaceWhitespaceAndSlashWithHyphen = require('./helpers/replaceWhitespaceAndSlashWithHyphen')
+const replaceWhitespaceAndSlashWithHyphen = require('../helpers/replaceWhitespaceAndSlashWithHyphen')
 
 const filterData = [
 	{
@@ -173,7 +173,8 @@ function renderOmahaFilter(req, res) {
 
 	// render this filter data
 	res.render('omaha-filter', {
-		filterData: newFilterData
+		filterData: newFilterData,
+		index: false
 	})
 }
 
