@@ -9,13 +9,13 @@ require('dotenv').config()
 
 const port = process.env.PORT || 3000
 
-const renderIndex = require('./src/controllers/render/renderIndex')
+const renderProducts = require('./src/controllers/render/renderProducts')
 const renderOmahaFilter = require('./src/controllers/render/renderOmahaFilter')
 const postOmahaFilterForm = require('./src/controllers/post/postOmahaFilterForm')
 const renderDomainTagFilter = require('./src/controllers/render/renderDomainTagFilter')
 const renderProductDetails = require('./src/controllers/render/renderProductDetails')
 const renderSearchPage = require('./src/controllers/render/renderSearchPage')
-const renderLandingPage = require('./src/controllers/render/renderLandingsPage')
+const renderIndex = require('./src/controllers/render/renderIndex')
 const renderCompare = require('./src/controllers/render/renderCompare')
 const postCompareForm = require('./src/controllers/post/postCompareForm')
 
@@ -54,12 +54,12 @@ app
 		next()
 	})
 	
-	.get('/producten', renderIndex)
+	.get('/producten', renderProducts)
 	.get('/omaha-filter', renderOmahaFilter)
 	.get('/omaha-filter/:domein', renderDomainTagFilter)
 	.get('/products/:product', renderProductDetails)
 	.get('/zoeken', renderSearchPage)
-	.get('/', renderLandingPage)
+	.get('/', renderIndex)
 	.get('/vergelijken', renderCompare)
 
 	.post('/omaha-domein', postOmahaFilterForm)
