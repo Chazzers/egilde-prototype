@@ -3,38 +3,49 @@
 <head>
 	<%- include('partials/Head.ejs') %> 
 </head>
-<body>
-	<header>
-		<h1>
-
-		</h1>
+<body class="omahaPage">
+	<header class="indexheader">
+		<div class="titlecontainer">
+			<h1>OMAHA filter</h1>
+		</div>
+		<div class="buttons">
+			<%- include('partials/HeaderNav.ejs') %>
+		</div>
 	</header>
-	<main class="omaha">
-		<form class="omaha-form" action="/omaha-domein" method="POST">
-			<% filterData.forEach(domein => { %>
-				<fieldset data-id="<%= domein.id %>" class="<%= domein.id %>-container domein-tag-fieldset">
-					<legend>
-						<% if(domein.domein === 'Risicofactoren') { %>
-							Kies een eigenschap binnen <%= domein.domein %>
-						<% } else { %>
-							Kies een eigenschap binnen het <%= domein.domein %>
-						<% } %>
-					</legend>
-					<div class="domein-tag-input-container">
-						<% domein.domeinTags.forEach(tag => { %>
-							<input class="omaha-domein-tag-input" id="<%= tag.slug %>" type="radio" name="domeinTags" value="<%= tag.slug %>">
-							<label class="omaha-domein-tag-label" for="<%= tag.slug %>">
-								<%= tag.tag %>
-							</label>
-						<% }) %>
-					</div>
-				</fieldset>
-			<% }) %>
-			<div class="buttons-container">
-				<a class="omaha-form-button back" href="/omaha-filter">Terug</a>
-				<button id="omaha-submit" class="omaha-form-button" type="submit">Submit</button>
-			</div>
-		</form>
+	<main>
+		<div class="steps steps2">
+			<article>1</article>
+			<article>2</article>
+		</div>
+			<form class="omaha-form" action="/omaha-domein" method="POST">
+				<% filterData.forEach(domein => { %>
+					<fieldset data-id="<%= domein.id %>" class="<%= domein.id %>-container domein-tag-fieldset">
+						<legend>
+							<% if(domein.domein === 'Risicofactoren') { %>
+								Kies een eigenschap binnen <%= domein.domein %>
+							<% } else { %>
+								Kies een eigenschap binnen het <%= domein.domein %>
+							<% } %>
+						</legend>
+						<br>
+						<div class="domein-tag-input-container">
+							<% domein.domeinTags.forEach(tag => { %>
+								<div>
+									<input class="omaha-domein-tag-input" id="<%= tag.slug %>" type="radio" name="domeinTags" value="<%= tag.slug %>">
+									<label class="omaha-domein-tag-label" for="<%= tag.slug %>">
+										<img src="<%= tag.image %>" alt="">
+									</label>
+									<p><%= tag.tag %></p>
+								</div>
+							<% }) %>
+						</div>
+					</fieldset>
+				<% }) %>
+				<div class="buttons-container">
+					<button id="omaha-submit" class="omaha-form-button" type="submit">Submit</button>
+					<a class="omaha-form-button back" href="/omaha-filter">Terug</a>
+				</div>
+			</form>
 	</main>
 </body>
 </html>
