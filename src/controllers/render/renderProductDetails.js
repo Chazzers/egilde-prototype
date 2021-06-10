@@ -1,6 +1,6 @@
 const contentful = require('contentful')
 const documentToHtmlString = require('@contentful/rich-text-html-renderer').documentToHtmlString
-const Page = require('../models/Page')
+const Page = require('../../models/Page')
 
 async function renderProductDetails(req, res){
 	// get product slug from url
@@ -74,7 +74,8 @@ async function renderProductDetails(req, res){
 
 	// render the page
     res.render('product-details', {
-		item: currentEntry.fields
+		item: currentEntry.fields,
+		index: false
 	})
 }
 

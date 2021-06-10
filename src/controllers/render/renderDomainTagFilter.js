@@ -1,4 +1,4 @@
-const replaceWhitespaceAndSlashWithHyphen = require('./helpers/replaceWhitespaceAndSlashWithHyphen')
+const replaceWhitespaceAndSlashWithHyphen = require('../helpers/replaceWhitespaceAndSlashWithHyphen')
 
 const filterData = [
 	{
@@ -164,16 +164,17 @@ const filterData = [
 	}
 ]
 
-function renderDomeinTagFilter(req, res) {
+function renderDomainTagFilter(req, res) {
 	const { domein } = req.params
 	const newFilterData = filterData.map(item => {
 		replaceWhitespaceAndSlashWithHyphen(item.domeinTags, 'tag', 'slug')
 		return item
 	})
 	const filteredDomainData = newFilterData.filter(item => item.id === domein)
-	res.render('omaha-domein', {
-		filterData: filteredDomainData
+	res.render('omaha-domain', {
+		filterData: filteredDomainData,
+		index: false
 	})
 }
 
-module.exports = renderDomeinTagFilter
+module.exports = renderDomainTagFilter

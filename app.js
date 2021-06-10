@@ -9,14 +9,15 @@ require('dotenv').config()
 
 const port = process.env.PORT || 3000
 
-const renderIndex = require('./src/controllers/renderIndex')
-const renderOmahaFilter = require('./src/controllers/renderOmahaFilter')
-const postOmahaFilterForm = require('./src/controllers/postOmahaFilterForm')
-const renderDomeinTagFilter = require('./src/controllers/renderDomeinTagFilter')
-const renderProductDetails = require('./src/controllers/renderProductDetails')
-const renderSearchPage = require('./src/controllers/renderSearchPage')
-const renderlandingsPage = require('./src/controllers/renderLandingsPage')
-const renderVergelijken = require('./src/controllers/renderVergelijken')
+const renderIndex = require('./src/controllers/render/renderIndex')
+const renderOmahaFilter = require('./src/controllers/render/renderOmahaFilter')
+const postOmahaFilterForm = require('./src/controllers/post/postOmahaFilterForm')
+const renderDomainTagFilter = require('./src/controllers/render/renderDomainTagFilter')
+const renderProductDetails = require('./src/controllers/render/renderProductDetails')
+const renderSearchPage = require('./src/controllers/render/renderSearchPage')
+const renderLandingPage = require('./src/controllers/render/renderLandingsPage')
+const renderCompare = require('./src/controllers/render/renderCompare')
+const postCompareForm = require('./src/controllers/post/postCompareForm')
 
 const uri = process.env.MONGODB_URI
 
@@ -55,13 +56,14 @@ app
 	
 	.get('/producten', renderIndex)
 	.get('/omaha-filter', renderOmahaFilter)
-	.get('/omaha-filter/:domein', renderDomeinTagFilter)
+	.get('/omaha-filter/:domein', renderDomainTagFilter)
 	.get('/products/:product', renderProductDetails)
-	.get('/zoek', renderSearchPage)
-	.get('/', renderlandingsPage)
-	.get('/vergelijken', renderVergelijken)
+	.get('/zoeken', renderSearchPage)
+	.get('/', renderLandingPage)
+	.get('/vergelijken', renderCompare)
 
 	.post('/omaha-domein', postOmahaFilterForm)
+	.post('/vergelijken', postCompareForm)
 
 	.listen(port, () => {
 		console.log(`Example app listening at http://localhost:${port}`)

@@ -1,5 +1,5 @@
 const contentful = require('contentful')
-const replaceWhitespaceAndSlashWithHyphen = require('./helpers/replaceWhitespaceAndSlashWithHyphen')
+const replaceWhitespaceAndSlashWithHyphen = require('../helpers/replaceWhitespaceAndSlashWithHyphen')
 
 const filteredData = [
 	{
@@ -210,50 +210,32 @@ const filteredData = [
 	}
 ]
 
-async function renderSearchPage(req, res) {
+async function renderIndex(req, res) {
 	const client = contentful.createClient({
 		space: process.env.SPACE_ID,
 		environment: process.env.ENV_ID,
 		accessToken: process.env.API_KEY
 	})
 
-	const cookies = req.cookies.recent_bekeken
-
 	const entries =  await client.getEntries()
 
 	const { items } = entries
-
-	let recentlyVisited = items
-
-	if(cookies) {
-		recentlyVisited = items.filter(item => cookies.includes(item.fields.slug))
-	}
 
 	const newFilterData = filteredData.map(item => {
 		replaceWhitespaceAndSlashWithHyphen(item.domeinTags, 'tag', 'slug')
 		return item
 	})
 
-	const recentEntries = recentlyVisited.map(item => {
-		item.fields.newTags = replaceWhitespaceAndSlashWithHyphen(item.fields.tags)
+	const transformedEntries = items.map(item => {
+		item.fields.tags = replaceWhitespaceAndSlashWithHyphen(item.fields.tags)
 		return item
 	})
 
-	const allEntries = items.map(item => {
-		item.fields.newTags = replaceWhitespaceAndSlashWithHyphen(item.fields.tags)
-		return item
-	})
-
-	const allTags = items.map(item => item.fields.tags)
-	const allTagsWithDupes = [].concat.apply([], allTags)
-	const allTagsNoDupes = [...new Set(allTagsWithDupes)]
-
-	res.render('zoek', {
-		recentItems: recentEntries,
+	res.render('index', {
+		items: transformedEntries,
 		filteredData: newFilterData,
-		allItems: allEntries,
-		allTags: allTagsNoDupes
+		index: true
 	})
 }
 
-module.exports = renderSearchPage
+module.exports = renderIndex

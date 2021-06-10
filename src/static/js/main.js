@@ -98,14 +98,6 @@ function replaceWhitespaceAndSlashWithHyphen(array, property, storeProperty) {
 	return array.map(item => item.replace(/(\s\/\s)|(\/\s)|(\s\-\s)|\s+|[,\/]/g, "-").toLowerCase())
 }
 
-function cleanUp(st) {
-	return st.
-	   replace(/[^a-z0-9]+/gi, '-').
-	   replace(/^-+/, '').
-	   replace(/-+$/, '');
-  }
-  
-
 function filterAllTagsNecessary(array) {
 	const checkedArray = allFilterCheckboxesArray.filter(item => item.checked)
 	const checkedValueArray = checkedArray.map(item => item.value)
