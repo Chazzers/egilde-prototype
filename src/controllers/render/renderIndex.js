@@ -234,7 +234,7 @@ async function renderIndex(req, res) {
 	res.render('index', {
 		items: transformedEntries,
 		filteredData: newFilterData,
-		index: true
+		page: true
 	})
 }
 

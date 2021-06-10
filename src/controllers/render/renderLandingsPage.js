@@ -35,7 +35,7 @@ async function renderLandingPage(req, res) {
 	// render landingspage
 	res.render('landing-page', {
 		items: transformedEntries,
-		index: false
+		page: 'landing-page'
 	})
 }
 

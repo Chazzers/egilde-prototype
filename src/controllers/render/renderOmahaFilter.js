@@ -174,7 +174,7 @@ function renderOmahaFilter(req, res) {
 	// render this filter data
 	res.render('omaha-filter', {
 		filterData: newFilterData,
-		index: false
+		page: 'omaha-filter'
 	})
 }
 

@@ -563,8 +563,6 @@ article h5{
 	width: 100%
 }
 
-
-
 /* zoek header */
 .zoekheader{
 	display: grid;
@@ -898,3 +896,6 @@ header a {
 	}
 }
 
+.active-nav-item {
+	text-decoration: underline;
+}

@@ -173,7 +173,7 @@ function renderDomainTagFilter(req, res) {
 	const filteredDomainData = newFilterData.filter(item => item.id === domein)
 	res.render('omaha-domain', {
 		filterData: filteredDomainData,
-		index: false
+		page: 'omaha-domein'
 	})
 }
 

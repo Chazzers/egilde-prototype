@@ -32,7 +32,7 @@ async function renderSearchPage(req, res) {
 		recentItems: recentEntries,
 		allItems: allEntries,
 		allTags: allTags,
-		index: false
+		page: 'zoeken'
 	})
 }
 

@@ -19,7 +19,7 @@ async function renderCompare(req, res) {
 
 	res.render('compare', {
 		items: transformedEntries,
-		index: false
+		page: false
 	})
 }
 

@@ -75,7 +75,7 @@ async function renderProductDetails(req, res){
 	// render the page
     res.render('product-details', {
 		item: currentEntry.fields,
-		index: false
+		page: 'product-detail'
 	})
 }
 
