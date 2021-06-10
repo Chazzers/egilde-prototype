@@ -49,7 +49,7 @@
 			</div>
 			<section class="ehealthitemscontainer">
 			<% items.forEach(item => { %>
-				<a href="/products/<%= item.fields.slug %>">
+				<a href="/producten/<%= item.fields.slug %>">
 					<article data-id="<%= item.fields.tags %>" data-title="<%= item.fields.slug %>"  class="ehealth-item">
 						<% if(item.fields.afbeelding) { %>
 							<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">

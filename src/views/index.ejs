@@ -21,7 +21,7 @@
         <h3>Recent bekeken</h3>
 		<section class="recentlyviewed">
 			<% for( let index = 0; index < items.length; index++ ) { %>
-				<a href="/products/<%= items[index].fields.slug %>">
+				<a href="/producten/<%= items[index].fields.slug %>">
 					<article data-id="<%= items[index].fields.tags %>" data-title="<%= items[index].fields.slug %>"  class="ehealth-item">
 						<% if(items[index].fields.afbeelding) { %>
 							<img src="<%= items[index].fields.afbeelding.fields.file.url %>" alt="">

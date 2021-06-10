@@ -26,7 +26,7 @@
 	<main class="landingspage">
 		<section class="ehealthitemscontainer">
 			<% allItems.forEach(item => { %>
-				<a href="/products/<%= item.fields.slug %>">
+				<a href="/producten/<%= item.fields.slug %>">
 					<article data-id="<%= item.fields.newTags %>" data-title="<%= item.fields.slug %>"  class="ehealth-item">
 						<% if(item.fields.afbeelding) { %>
 							<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
@@ -40,7 +40,7 @@
         <h3>Recent bekeken</h3>
 		<section class="recentlyviewed">
 			<% for( let index = 0; index < recentItems.length; index++ ) { %>
-				<a href="/products/<%= recentItems[index].fields.slug %>">
+				<a href="/producten/<%= recentItems[index].fields.slug %>">
 					<article data-id="<%= recentItems[index].fields.newTags %>" data-title="<%= recentItems[index].fields.slug %>"  class="ehealth-item">
 						<% if(recentItems[index].fields.afbeelding) { %>
 							<img src="<%= recentItems[index].fields.afbeelding.fields.file.url %>" alt="">

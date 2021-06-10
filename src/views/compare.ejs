@@ -12,7 +12,7 @@
 	<main class="vergelijken">
 		<form class="vergelijken-form" action="/vergelijken" method="POST">
 			<% items.forEach(item => { %>
-				<input class="vergelijken-checkbox" type="checkbox" id="<%= item.fields.slug %>" name="compare">
+				<input class="vergelijken-checkbox" type="checkbox" id="<%= item.fields.slug %>" name="compare" value="<%= item.fields.slug %>">
 				<label class="vergelijken-label" for="<%= item.fields.slug %>" name="compare">
 					<article 
 						data-id="<%= item.fields.tags %>"

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<%- include('partials/Head.ejs') %> 
+</head>
+<body>
+	<header>
+		<h1>
+			Vergelijken
+		</h1>
+	</header>
+	<main class="vergelijken-items">
+		<% items.forEach(item => { %>
+			<article class="item">
+				<header class="item-header item-content-container">
+					<h2><%= item.fields.titel %></h2>
+				</header>
+				<section class="item-img-container item-content-container">
+					<img src="<%= item.fields.afbeelding %>" alt="">
+				</section>
+				<section class="item-beschrijving-container item-content-container">
+					<h2>Beschrijving</h2>
+					<%- item.fields.beschrijving %>
+				</section>
+				<section class="item-tags-container item-content-container">
+					<h2>Tags</h2>
+					<ul>
+						<% item.fields.tags.forEach(tag => { %>
+							<li><%= tag %></li>
+						<% })%>
+					</ul>
+				</section>
+				<section class="item-link-container item-content-container">
+					<a class="item-link" href="/producten/<%= item.fields.slug %>">Lees meer</a>
+				</section>
+			</article>
+		<% }) %>
+	</main>
+</body>
+</html>

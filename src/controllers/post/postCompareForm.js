@@ -1,7 +1,13 @@
 function postCompareForm(req, res) {
 	const { compare } = req.body
 
-	console.log(compare)
+	const compareUrlString = compare.join('/')
+
+	console.log(compareUrlString)
+
+	const url = `/vergelijken/${compareUrlString}`
+
+	res.redirect(url)
 
 	res.end()
 }

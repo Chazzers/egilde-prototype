@@ -17,6 +17,7 @@ const renderProductDetails = require('./src/controllers/render/renderProductDeta
 const renderSearchPage = require('./src/controllers/render/renderSearchPage')
 const renderIndex = require('./src/controllers/render/renderIndex')
 const renderCompare = require('./src/controllers/render/renderCompare')
+const renderCompareItems = require('./src/controllers/render/renderCompareItems')
 const postCompareForm = require('./src/controllers/post/postCompareForm')
 
 const uri = process.env.MONGODB_URI
@@ -57,10 +58,11 @@ app
 	.get('/producten', renderProducts)
 	.get('/omaha-filter', renderOmahaFilter)
 	.get('/omaha-filter/:domein', renderDomainTagFilter)
-	.get('/products/:product', renderProductDetails)
+	.get('/producten/:product', renderProductDetails)
 	.get('/zoeken', renderSearchPage)
 	.get('/', renderIndex)
 	.get('/vergelijken', renderCompare)
+	.get('/vergelijken/:item_1/:item_2', renderCompareItems)
 
 	.post('/omaha-domein', postOmahaFilterForm)
 	.post('/vergelijken', postCompareForm)
