@@ -7,6 +7,12 @@ const ehealthItems = document.querySelectorAll('.ehealthitemscontainer .ehealth-
 const zoekForm = document.getElementById('zoek-form')
 const searchInput = document.getElementById('search-choice')
 const searchDatalist = document.getElementById('search')
+const vergelijkBtn = document.getElementById('vergelijk-btn')
+const compareContainer = document.getElementById('ehealth-items-compare')
+const ehealthContainer = document.getElementById('ehealth-items-overview')
+const vergelijkSubmit = document.getElementById('vergelijk-submit')
+const vergelijkCheckboxes = document.querySelectorAll('.vergelijken-checkbox')
+const vergelijkCheckboxesLabel = document.querySelectorAll('.vergelijken-label')
 // Spread operator, can be used to transform a node list to an array, this way you can use all the array methods like: array.filter, array.map, array.forEach etc.
 if(next) {
 	const omahaDomeinInputArray = [...omahaDomeinInput]
@@ -78,6 +84,41 @@ if(zoekForm) {
 			}
 		})
 	})
+}
+
+if(vergelijkBtn) {
+	vergelijkBtn.addEventListener('click',() => {
+		compareContainer.classList.toggle('hide-container')
+		ehealthContainer.classList.toggle('hide-container')
+	})
+}
+
+if(vergelijkCheckboxes) {
+	const vergelijkCheckboxesArray = [...vergelijkCheckboxes]
+	const vergelijkCheckboxesLabelArray = [...vergelijkCheckboxesLabel]
+	const vergelijkSubmitBtn = document.createElement('button')
+	vergelijkSubmitBtn.classList.add('vergelijken-submit')
+	vergelijkSubmitBtn.classList.add('active')
+	vergelijkSubmitBtn.type = 'submit'
+	vergelijkSubmitBtn.innerHTML = 'Vergelijken'
+	vergelijkSubmitBtn.id = 'vergelijken-submit'
+	vergelijkCheckboxesArray.forEach(checkbox => checkbox.addEventListener('click', () => {
+		const checkedCheckboxes = vergelijkCheckboxesArray.filter(checkbox => checkbox.checked)
+
+		const unCheckedCheckboxes = vergelijkCheckboxesArray.filter(checkbox => !checkbox.checked)
+
+		const unCheckedLabels = vergelijkCheckboxesLabelArray.filter(label => !label.checked)
+
+		const checkedCheckboxesLength = checkedCheckboxes.length
+
+		if(checkedCheckboxesLength === 2) {
+			vergelijkSubmit.parentNode.replaceChild(vergelijkSubmitBtn, vergelijkSubmit)
+			unCheckedCheckboxes.forEach(checkbox => checkbox.classList.add('inactive-checkbox'))
+		} 
+		if(checkedCheckboxesLength < 2 && !vergelijkSubmit) {
+			vergelijkSubmitBtn.parentNode.replaceChild(vergelijkSubmit, vergelijkSubmitBtn)
+		}
+	}))
 }
 
 function filterOnTitle(array, filterValue) {

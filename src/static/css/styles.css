@@ -470,7 +470,9 @@ div.filterbox{
 }
 
 .indexPage article{
-	width: 350px;
+	max-width: 350px;
+	width: 30vw;
+	min-width: 250px;
 }
 
 /* article */
@@ -769,35 +771,53 @@ header a {
 .vergelijken .vergelijken-form {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: center;
 }
 
 .vergelijken .vergelijken-form .vergelijken-checkbox{
 	display: none;
 }
 
-.vergelijken .vergelijken-form .vergelijken-checkbox:checked + label {
+.vergelijken .vergelijken-form .vergelijken-checkbox.inactive-checkbox + label {
+	pointer-events: none;
+}
 
+
+.vergelijken .vergelijken-form .vergelijken-checkbox.inactive-checkbox + label .vergelijken-visual-checkbox{
+	border: solid 2px rgb(210, 210, 210);
+}
+
+
+.vergelijken .vergelijken-form .vergelijken-submit {
+	display: block;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
+	background-color: rgb(210, 210, 210);
+	width: 100%;
+	font-weight: 500;
+	color: rgb(84, 84, 84);
+	text-align: center;
+}
+
+.vergelijken .vergelijken-form .vergelijken-submit.active {
+	background-color: var(--main-color);
+	color: white;
 }
 
 .vergelijken .vergelijken-form .vergelijken-label{
+	display: block;
+	position: relative;
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+}
+
+.vergelijken .vergelijken-form .vergelijken-label .ehealth-item{
 	max-width: 350px;
 	width: 30vw;
 	min-width: 250px;
-	display: block;
-	position: relative;
-}
-
-.vergelijken .vergelijken-form .vergelijken-submit {
-	
-}
-
-.vergelijken .vergelijken-form .vergelijken-label .ehealth-item{
-	
-}
-
-.vergelijken .vergelijken-form .vergelijken-label .ehealth-item{
-	
 }
 
 .vergelijken .vergelijken-form .vergelijken-label .vergelijken-visual-checkbox {
@@ -1028,7 +1048,6 @@ header a {
 	object-fit: cover;
 }
 
-
 .vergelijken-items .item .item-img-container {
 	padding: 0;
 	margin: 0;
@@ -1098,6 +1117,11 @@ header a {
 
 .vergelijken-items .item .item-link-container {
 	padding: 0;
+}
+
+main.vergelijken .ehealthitemscontainer.hide-container,
+main.vergelijken .vergelijken-form.hide-container {
+	display: none;
 }
 
 /* @media's  */
