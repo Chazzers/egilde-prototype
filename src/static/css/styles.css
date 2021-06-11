@@ -883,6 +883,13 @@ header a {
 .landingspage h5{
 	font-weight: lighter;
 	text-align: center;
+	font-size: 1em;
+	margin: 10px;
+}
+
+.landingspage h6 {
+	font-weight: lighter;
+	text-align: center;
 	font-size: 1.25em;
 	margin: 10px;
 }
