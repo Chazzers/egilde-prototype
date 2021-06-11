@@ -101,23 +101,29 @@ if(vergelijkCheckboxes) {
 	vergelijkSubmitBtn.classList.add('active')
 	vergelijkSubmitBtn.type = 'submit'
 	vergelijkSubmitBtn.innerHTML = 'Vergelijken'
-	vergelijkSubmitBtn.id = 'vergelijken-submit'
+	vergelijkSubmitBtn.id = 'vergelijk-submit'
+	const vergelijkSubmitDiv = document.createElement('div')
+	vergelijkSubmitDiv.classList.add('vergelijken-submit')
+	vergelijkSubmitDiv.innerHTML = 'Vergelijken'
+	vergelijkSubmitDiv.id = 'vergelijk-submit'
+	
+
 	vergelijkCheckboxesArray.forEach(checkbox => checkbox.addEventListener('click', () => {
 		const checkedCheckboxes = vergelijkCheckboxesArray.filter(checkbox => checkbox.checked)
 
 		const unCheckedCheckboxes = vergelijkCheckboxesArray.filter(checkbox => !checkbox.checked)
 
-		const unCheckedLabels = vergelijkCheckboxesLabelArray.filter(label => !label.checked)
-
 		const checkedCheckboxesLength = checkedCheckboxes.length
 
 		if(checkedCheckboxesLength === 2) {
-			vergelijkSubmit.parentNode.replaceChild(vergelijkSubmitBtn, vergelijkSubmit)
+			const vergelijkSubmitContainer = document.getElementById('vergelijk-submit')
+			vergelijkSubmitContainer.parentNode.replaceChild(vergelijkSubmitBtn, vergelijkSubmitContainer)
 			unCheckedCheckboxes.forEach(checkbox => checkbox.classList.add('inactive-checkbox'))
+		} else if(checkedCheckboxesLength < 2) {
+			const vergelijkSubmitContainer = document.getElementById('vergelijk-submit')
+			vergelijkSubmitContainer.parentNode.replaceChild(vergelijkSubmitDiv, vergelijkSubmitContainer)
+			unCheckedCheckboxes.forEach(checkbox => checkbox.classList.remove('inactive-checkbox'))
 		} 
-		if(checkedCheckboxesLength < 2 && !vergelijkSubmit) {
-			vergelijkSubmitBtn.parentNode.replaceChild(vergelijkSubmit, vergelijkSubmitBtn)
-		}
 	}))
 }
 
