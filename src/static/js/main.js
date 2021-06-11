@@ -88,14 +88,12 @@ function filterOnTag(array, filterValue) {
 	return array.filter(item => !item.dataset.id.split(',').includes(filterValue))
 }
 
-function replaceWhitespaceAndSlashWithHyphen(array, property, storeProperty) {
-	if(property) {
-		return array.map(item => 
-			item[storeProperty] = item[property]
-				.replace(/(\s\/\s)|(\/\s)|(\s\-\s)|\s+|[,\/]/g, "-")
-				.toLowerCase())
-	}
-	return array.map(item => item.replace(/(\s\/\s)|(\/\s)|(\s\-\s)|\s+|[,\/]/g, "-").toLowerCase())
+function cleanUp(st) {
+	return st
+	   .replace(/[^a-z0-9]+/gi, '-')
+	   .replace(/^-+/, '')
+	   .replace(/-+$/, '')
+	   .toLowerCase()
 }
 
 function filterAllTagsNecessary(array) {
