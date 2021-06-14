@@ -230,8 +230,6 @@ async function renderProducts(req, res) {
 
 
 	newFilterData.forEach(item => item.domeinTags = item.domeinTags.filter(tag => allTags.includes(tag.tag)))
-	console.log(newFilterData)
-	console.log(allTags)
 
 	const transformedEntries = items.map(item => {
 		item.fields.tags = replaceWhitespaceAndSlashWithHyphen(item.fields.tags)

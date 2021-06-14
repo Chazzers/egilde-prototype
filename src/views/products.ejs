@@ -90,7 +90,11 @@
 								<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
 							<% } %>
 							<h3><%= item.fields.titel %></h3>
-							<h5><%= item.fields.tags %></h5>
+							<div class="ehealth-tags-container">
+								<% item.fields.tags.forEach(tag => { %>
+									<h5><%= tag %></h5>
+								<% }) %>
+							</div>
 							<div class="vergelijken-visual-checkbox">
 								<svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M16.8105 0.767755C15.8342 -0.208555 14.2513 -0.208555 13.2749 0.767756L6.15436 7.88834L4.49824 6.23222C3.52192 5.25591 1.93901 5.25591 0.962702 6.23222C-0.0136089 7.20853 -0.0136089 8.79144 0.962702 9.76776L4.49824 13.3033C5.47455 14.2796 7.05746 14.2796 8.03377 13.3033L16.8105 4.30329C17.7868 3.32698 17.7868 1.74407 16.8105 0.767755Z" fill="white"/>
