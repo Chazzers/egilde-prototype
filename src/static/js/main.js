@@ -13,6 +13,7 @@ const ehealthContainer = document.getElementById('ehealth-items-overview')
 const vergelijkSubmit = document.getElementById('vergelijk-submit')
 const vergelijkCheckboxes = document.querySelectorAll('.vergelijken-checkbox')
 const vergelijkCheckboxesLabel = document.querySelectorAll('.vergelijken-label')
+const backBtn = document.getElementById('back-btn')
 // Spread operator, can be used to transform a node list to an array, this way you can use all the array methods like: array.filter, array.map, array.forEach etc.
 if(next) {
 	const omahaDomeinInputArray = [...omahaDomeinInput]
@@ -125,6 +126,12 @@ if(vergelijkCheckboxes) {
 			unCheckedCheckboxes.forEach(checkbox => checkbox.classList.remove('inactive-checkbox'))
 		} 
 	}))
+}
+
+if(backBtn) {
+	backBtn.addEventListener('click', () => {
+		window.history.back()
+	})
 }
 
 function filterOnTitle(array, filterValue) {

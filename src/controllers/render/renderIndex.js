@@ -1,5 +1,6 @@
 const contentful = require('contentful')
 const replaceWhitespaceAndSlashWithHyphen = require('../helpers/replaceWhitespaceAndSlashWithHyphen')
+const Page = require('../../models/Page')
 
 async function renderIndex(req, res) {
 	// create contentful client with keys
@@ -8,6 +9,8 @@ async function renderIndex(req, res) {
 		environment: process.env.ENV_ID,
 		accessToken: process.env.API_KEY
 	})
+
+	const pages = await Page.find({})
 
 	// get recently visited cookies
 	const cookies = req.cookies.recent_bekeken
@@ -25,6 +28,18 @@ async function renderIndex(req, res) {
 	if(cookies) {
 		recentlyVisited = items.filter(item => cookies.includes(item.fields.slug))
 	}
+	const visitedPagesSlugs = pages.map(page => page.slug)
+	const visitedEntries = items.filter(item => visitedPagesSlugs.includes(item.fields.slug))
+	const transformedVisitedEntries = visitedEntries.map(entry => {
+		pages.forEach(item => {
+			if(item.slug === entry.fields.slug) {
+				entry.fields.visited = item.visited
+			}
+		})
+		return entry
+	})
+
+	const fiveMostvisitedEntries = transformedVisitedEntries.sort((a, b) => b.fields.visited - a.fields.visited).slice(0, 5)
 
 	// create new slugs for data-id
 	const transformedEntries = recentlyVisited.map(item => {
@@ -32,10 +47,16 @@ async function renderIndex(req, res) {
 		return item
 	})
 
+	const fiveMostvisitedEntriesTransformed = fiveMostvisitedEntries.map(item => {
+		item.fields.tags = replaceWhitespaceAndSlashWithHyphen(item.fields.tags)
+		return item
+	})
+
 	// render landingspage
 	res.render('index', {
 		items: transformedEntries,
-		page: 'landing-page'
+		page: 'landing-page',
+		mostVisited: fiveMostvisitedEntriesTransformed
 	})
 }
 

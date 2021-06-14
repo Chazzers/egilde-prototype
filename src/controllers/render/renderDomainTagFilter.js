@@ -1,4 +1,5 @@
 const replaceWhitespaceAndSlashWithHyphen = require('../helpers/replaceWhitespaceAndSlashWithHyphen')
+const contentful = require('contentful')
 
 const filterData = [
 	{
@@ -209,17 +210,40 @@ const filterData = [
 	}
 ]
 
-function renderDomainTagFilter(req, res) {
+async function renderDomainTagFilter(req, res) {
 	const { domein } = req.params
 	const newFilterData = filterData.map(item => {
 		replaceWhitespaceAndSlashWithHyphen(item.domeinTags, 'tag', 'slug')
 		return item
 	})
 	const filteredDomainData = newFilterData.filter(item => item.id === domein)
+
+		// create contentful client with keys
+	const client = contentful.createClient({
+		space: process.env.SPACE_ID,
+		environment: process.env.ENV_ID,
+		accessToken: process.env.API_KEY
+	})
+	// get entries
+	const entries =  await client.getEntries()
+
+	// get items of entries
+	const { items } = entries
+
+	const allTags = cleanTags(items)
+
+	filteredDomainData.forEach(item => item.domeinTags = item.domeinTags.filter(tag => allTags.includes(tag.tag)))
+
 	res.render('omaha-domain', {
 		filterData: filteredDomainData,
 		page: 'omaha-domein'
 	})
+}
+
+function cleanTags(array) {
+	const tagArray = array.map(item => item.fields.tags)
+	const deNestedTagArray = [].concat.apply([], tagArray)
+	return [...new Set(deNestedTagArray)]
 }
 
 module.exports = renderDomainTagFilter

@@ -1131,7 +1131,9 @@ main.vergelijken .vergelijken-form.hide-container {
 	display: none;
 }
 
-main.vergelijken .ehealthitemscontainer .ehealth-item .ehealth-tags-container {
+main.vergelijken .ehealthitemscontainer .ehealth-item .ehealth-tags-container,
+main.landingspage .ehealthitemscontainer .ehealth-item .ehealth-tags-container,
+main.landingspage .recentlyviewed .ehealth-item .ehealth-tags-container {
 	display: flex;
 	flex-wrap: wrap;
 	position: absolute;
@@ -1139,7 +1141,9 @@ main.vergelijken .ehealthitemscontainer .ehealth-item .ehealth-tags-container {
 	padding: 0.5rem;
 }
 
-main.vergelijken .ehealthitemscontainer .ehealth-item .ehealth-tags-container h5 {
+main.vergelijken .ehealthitemscontainer .ehealth-item .ehealth-tags-container h5,
+main.landingspage .ehealthitemscontainer .ehealth-item .ehealth-tags-container h5,
+main.landingspage .recentlyviewed .ehealth-item .ehealth-tags-container h5 {
 	position: static;
 	margin: 0 0.5rem 0.5rem 0;
 }

@@ -18,20 +18,48 @@
            <article><a href="/omaha-filter">Gebruik de OMAHA filter</a></article>
            <article><a href="/producten">Bekijk het aanbod</a></article>
         </section>
+		<% if(items.length) { %>
         <h3>Recent bekeken</h3>
 		<section class="recentlyviewed">
-			<% for( let index = 0; index < items.length; index++ ) { %>
-				<a href="/products/<%= items[index].fields.slug %>">
-					<article data-id="<%= items[index].fields.tags %>" data-title="<%= items[index].fields.slug %>"  class="ehealth-item">
-						<% if(items[index].fields.afbeelding) { %>
-							<img src="<%= items[index].fields.afbeelding.fields.file.url %>" alt="">
+			<% items.forEach(item => { %>
+				<a href="/products/<%= item.fields.slug %>">
+					<article data-id="<%= item.fields.tags %>" data-title="<%= item.fields.slug %>"  class="ehealth-item">
+						<% if(item.fields.afbeelding) { %>
+							<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
 						<% } %>
-						<h3><%= items[index].fields.titel %></h3>
-						<h5><%= items[index].fields.tags %></h5>
+						<h3><%= item.fields.titel %></h3>
+						<div class="ehealth-tags-container">
+							<% item.fields.tags.forEach(tag => { %>
+								<h5><%= tag %></h5>
+							<% }) %>
+						</div>
 					</article>
 				</a>
-			<% } %>
+			<% }) %>
 		</section>
+		<% } %>
+		
+		<% if(items.length) { %>
+			<h3>Meest bezochte toepassingen</h3>
+			<section class="recentlyviewed">
+				<% mostVisited.forEach(item => { %>
+					<a href="/products/<%= item.fields.slug %>">
+						<article data-id="<%= item.fields.tags %>" data-title="<%= item.fields.slug %>"  class="ehealth-item">
+							<% if(item.fields.afbeelding) { %>
+								<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
+							<% } %>
+							<h3><%= item.fields.titel %></h3>
+							<div class="ehealth-tags-container">
+								<% item.fields.tags.forEach(tag => { %>
+									<h5><%= tag %></h5>
+								<% }) %>
+							</div>
+						</article>
+					</a>
+				<% }) %>
+			</section>
+		<% } %>
+
 		<a class="meer-icon" href="#meer">
 			<img src="/images/meer.png" alt="">
 			<p>meer over eGilde</p>

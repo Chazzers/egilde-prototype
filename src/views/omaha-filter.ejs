@@ -22,15 +22,17 @@
 		</h2>
 		<section class="omaha">
 			<% filterData.forEach(item => { %>
-				<div>
-				<a 
-					class="omaha-domein-label" 
-					href="/omaha-filter/<%= item.id %>"
-				>
-				<img src="<%= item.img %>" alt="">
-				</a>
-				<p><%= item.domein %></p>
-			</div>
+				<% if(item.domeinTags.length > 0)  { %>
+					<div>
+						<a 
+							class="omaha-domein-label" 
+							href="/omaha-filter/<%= item.id %>"
+						>
+							<img src="<%= item.img %>" alt="">
+						</a>
+						<p><%= item.domein %></p>
+					</div>
+				<% } %>
 			<% }) %>
 		</section>
 			

@@ -31,7 +31,7 @@
 						<div class="domein-tag-input-container">
 							<% domein.domeinTags.forEach(tag => { %>
 								<div>
-									<input class="omaha-domein-tag-input" id="<%= tag.slug %>" type="radio" name="domeinTags" value="<%= tag.slug %>">
+									<input class="omaha-domein-tag-input" id="<%= tag.slug %>" type="radio" name="domeinTags" value="<%= tag.slug %>" required>
 									<label class="omaha-domein-tag-label" for="<%= tag.slug %>">
 										<img src="<%= tag.image %>" alt="">
 									</label>
