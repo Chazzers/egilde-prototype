@@ -21,19 +21,11 @@
 		<% if(items.length) { %>
         <h3>Recent bekeken</h3>
 		<section class="recentlyviewed">
-<<<<<<< HEAD
-			<% items.forEach(item => { %>
-				<a href="/products/<%= item.fields.slug %>">
-					<article data-id="<%= item.fields.tags %>" data-title="<%= item.fields.slug %>"  class="ehealth-item">
-						<% if(item.fields.afbeelding) { %>
-							<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
-=======
 			<% for( let index = 0; index < items.length; index++ ) { %>
 				<a href="/producten/<%= items[index].fields.slug %>">
 					<article data-id="<%= items[index].fields.tags %>" data-title="<%= items[index].fields.slug %>"  class="ehealth-item">
 						<% if(items[index].fields.afbeelding) { %>
 							<img src="<%= items[index].fields.afbeelding.fields.file.url %>" alt="">
->>>>>>> vergelijken/styles
 						<% } %>
 						<h3><%= item.fields.titel %></h3>
 						<div class="ehealth-tags-container">
