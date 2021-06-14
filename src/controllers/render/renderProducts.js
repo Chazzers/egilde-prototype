@@ -225,6 +225,13 @@ async function renderProducts(req, res) {
 		replaceWhitespaceAndSlashWithHyphen(item.domeinTags, 'tag', 'slug')
 		return item
 	})
+	
+	const allTags = cleanTags(items)
+
+
+	newFilterData.forEach(item => item.domeinTags = item.domeinTags.filter(tag => allTags.includes(tag.tag)))
+	console.log(newFilterData)
+	console.log(allTags)
 
 	const transformedEntries = items.map(item => {
 		item.fields.tags = replaceWhitespaceAndSlashWithHyphen(item.fields.tags)
@@ -236,6 +243,12 @@ async function renderProducts(req, res) {
 		filteredData: newFilterData,
 		page: 'producten'
 	})
+}
+
+function cleanTags(array) {
+	const tagArray = array.map(item => item.fields.tags)
+	const deNestedTagArray = [].concat.apply([], tagArray)
+	return [...new Set(deNestedTagArray)]
 }
 
 module.exports = renderProducts

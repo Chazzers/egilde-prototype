@@ -18,22 +18,30 @@
 				<legend>Domeinen</legend>
 				<% filteredData.forEach((domein, index) => { %>
 					<div class="container">
-						<legend for="<%= domein.id %>"><%= domein.domein %></legend>
+						<% if(domein.domeinTags.length > 0) { %> 
+							<legend for="<%= domein.id %>"><%= domein.domein %></legend>
+						<%}%>
 						<div>
 							<% for( let index = 0; index < 3; index++ ) { %>
-								<input class="filter-checkbox" id="<%= domein.domeinTags[index].slug %>" type="checkbox" name="domeinTags" value="<%= domein.domeinTags[index].slug %>">
-								<label for="<%= domein.domeinTags[index].slug %>"><%= domein.domeinTags[index].tag %></label> 
-								<br>
+								<% if(domein.domeinTags[index]) { %>
+									<input class="filter-checkbox" id="<%= domein.domeinTags[index].slug %>" type="checkbox" name="domeinTags" value="<%= domein.domeinTags[index].slug %>">
+									<label for="<%= domein.domeinTags[index].slug %>"><%= domein.domeinTags[index].tag %></label> 
+									<br>
+								<% } %>
 							<% } %>
 						</div>
 						<div class="input-container hide">
 							<% for( let index = 3; index < domein.domeinTags.length; index++ ) { %>
-								<input class="filter-checkbox" id="<%= domein.domeinTags[index].slug %>" type="checkbox" name="domeinTags" value="<%= domein.domeinTags[index].slug %>">
-								<label for="<%= domein.domeinTags[index].slug %>"><%= domein.domeinTags[index].tag %></label> 
-								<br>
+								<% if(domein.domeinTags[index]) { %>
+									<input class="filter-checkbox" id="<%= domein.domeinTags[index].slug %>" type="checkbox" name="domeinTags" value="<%= domein.domeinTags[index].slug %>">
+									<label for="<%= domein.domeinTags[index].slug %>"><%= domein.domeinTags[index].tag %></label> 
+									<br>
+								<% } %>
 							<% } %>
 						</div>
-						<button data-id="<%= index %>" type="button" class="showmorebutton">Toon meer</button>
+						<% if(domein.domeinTags.length > 3) { %> 
+							<button data-id="<%= index %>" type="button" class="showmorebutton">Toon meer</button>
+						<%}%>
 					</div>
 				<% }) %>
 			</fieldset>
@@ -60,7 +68,11 @@
 							<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
 						<% } %>
 						<h3><%= item.fields.titel %></h3>
-						<h5><%= item.fields.tags %></h5>
+						<div class="ehealth-tags-container">
+							<% item.fields.tags.forEach(tag => { %>
+								<h5><%= tag %></h5>
+							<% }) %>
+						</div>
 					</article>
 				</a>
 			<% }) %>
