@@ -4,10 +4,13 @@
 	<%- include('partials/Head.ejs') %> 
 </head>
 <body>
-	<header>
-		<h1>
-			Vergelijken
-		</h1>
+	<header class="indexheader">
+		<div class="titlecontainer">
+			<h1>Vergelijken</h1>
+		</div>
+		<div class="buttons">
+			<%- include('partials/HeaderNav.ejs') %> 
+		</div>
 	</header>
 	<main class="vergelijken-items">
 		<% items.forEach(item => { %>
