@@ -2,11 +2,13 @@ const buttonBenodigdheden = document.getElementById("meerButton1")
 const buttonGebruik = document.getElementById("meerButton2")
 const buttonWerking = document.getElementById("meerButton3")
 const buttonExtra = document.getElementById("meerButton4")
+const buttonContact = document.getElementById("meerButton5")
 
 const divBenodigdheden = document.getElementById("input-container1")
 const divGebruik = document.getElementById("input-container2")
 const divWerking = document.getElementById("input-container3")
 const divExtra = document.getElementById("input-container4")
+const divContact = document.getElementById("input-container5")
 
 
 if(buttonBenodigdheden) {
@@ -54,6 +56,19 @@ if(buttonExtra) {
 	
 		else{
 			buttonExtra.textContent = "Toon meer"
+		}
+	})
+}
+
+if(buttonContact) {
+	buttonContact.addEventListener("click", function(){
+		divContact.classList.toggle("showMoreClass")
+		if (buttonContact.textContent === "Toon meer"){
+			buttonContact.textContent = "Toon minder"
+		}
+	
+		else{
+			buttonContact.textContent = "Toon meer"
 		}
 	})
 }
