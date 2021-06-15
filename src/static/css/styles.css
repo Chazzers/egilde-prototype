@@ -2,6 +2,8 @@
 	--main-color: #5E6099;
 	--second-color: #AFCCA8;
 	--third-color: #FFA448;
+	--fourth-color: #A4B4E3;
+	--fifth-color: #709963;
 	--form-domein-filters-width: 14rem;
 	--ehealth-items-container-width: calc(100vw - var(--form-domein-filters-width));
 }
