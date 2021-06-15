@@ -899,6 +899,7 @@ header a {
 	font-weight: 500;
 	color: rgb(84, 84, 84);
 	text-align: center;
+	z-index: 2;
 }
 
 .vergelijken .vergelijken-form .vergelijken-submit.active {
@@ -966,7 +967,7 @@ header a {
 	font-weight: lighter;
 	text-align: left;
 	font-size: 2em;
-	margin: 70px 0 0;
+	margin: 70px 20px 0;
 }
 
 .landingspage .title{
@@ -1058,6 +1059,10 @@ header a {
 	justify-content: flex-start;
 	margin: 20px auto 50px;
 	overflow-x: scroll;
+}
+
+.landingspage .recentlyviewed {
+	padding: 0 20px;
 }
 
 .recentlyviewed article {

@@ -1,5 +1,6 @@
 const contentful = require('contentful')
 const replaceWhitespaceAndSlashWithHyphen = require('../helpers/replaceWhitespaceAndSlashWithHyphen')
+const Page = require('../../models/Page')
 
 const filteredData = [
 	{
@@ -226,6 +227,8 @@ async function renderSearchPage(req, res) {
 
 	const entries =  await client.getEntries()
 
+	const pages = await Page.find({})
+
 	const { items } = entries
 
 	const newFilterData = filteredData.map(item => {
@@ -257,12 +260,48 @@ async function renderSearchPage(req, res) {
 		return item
 	})
 
+	const visitedPagesSlugs = pages.map(page => page.slug)
+	const visitedEntries = newTransformedEntries.filter(item => visitedPagesSlugs.includes(item.fields.slug))
+
+	const transformedVisitedEntries = visitedEntries.map(entry => {
+		pages.forEach(item => {
+			if(item.slug === entry.fields.slug) {
+				entry.fields.visited = item.visited
+			}
+		})
+		return entry
+	})
+
+	const fiveMostvisitedEntries = transformedVisitedEntries.sort((a, b) => b.fields.visited - a.fields.visited).slice(0, 5)
+
+	const fiveMostvisitedEntriesTransformed = fiveMostvisitedEntries.map(item => {
+		item.fields.tags = replaceWhitespaceAndSlashWithHyphen(item.fields.tags)
+		return item
+	})
+
+	const newFiveMostvisitedEntriesTransformed = fiveMostvisitedEntriesTransformed.map(item => {
+		item.fields.tagObjects = item.fields.tags.map(tag => {
+			const tagObject = {}
+			newFilterData.forEach(filterDataItem => {
+				const domainTags = filterDataItem.domeinTags.map(tag => tag.slug)
+				if(domainTags.includes(tag)) {
+					tagObject.domain = filterDataItem.id
+					tagObject.color = filterDataItem.color
+				}
+			})
+			tagObject.tag = tag
+			return tagObject
+		})
+		return item
+	})
+
 	const recentlyVisited = cookies ? newTransformedEntries.filter(item => cookies.includes(item.fields.slug)) : newTransformedEntries
 
 	const allTags = cleanTags(items)
 
 	res.render('search', {
 		recentItems: recentlyVisited,
+		mostVisited: newFiveMostvisitedEntriesTransformed,
 		allItems: newTransformedEntries,
 		allTags: allTags,
 		page: 'zoeken'

@@ -62,6 +62,26 @@
 				<% }) %>
 			</section>
 		<% } %>
+		<% if(mostVisited.length) { %>
+			<h3>Populair</h3>
+			<section class="recentlyviewed">
+				<% mostVisited.forEach(item => { %>
+					<a href="/producten/<%= item.fields.slug %>">
+						<article data-id="<%= item.fields.tags %>" data-title="<%= item.fields.slug %>"  class="ehealth-item">
+							<% if(item.fields.afbeelding) { %>
+								<img src="<%= item.fields.afbeelding.fields.file.url %>" alt="">
+							<% } %>
+							<h3><%= item.fields.titel %></h3>
+							<div class="ehealth-tags-container">
+								<% item.fields.tagObjects.forEach(tag => { %>
+									<h5 class="<%= tag.color %>"><%= tag.tag %></h5>
+								<% }) %>
+							</div>
+						</article>
+					</a>
+				<% }) %>
+			</section>
+		<% } %>
 	</main>
 </body>
 </html>
