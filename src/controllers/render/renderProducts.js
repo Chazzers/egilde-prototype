@@ -5,6 +5,7 @@ const filteredData = [
 	{
 		domein: 'Fysiologisch',
 		id: 'fysiologisch',
+		color: 'dark-purple',
 		domeinTags: [
 			{
 				tag:'Ademhaling',
@@ -82,6 +83,7 @@ const filteredData = [
 	}, {
 		domein: 'Psychosociaal',
 		id: 'psychosociaal',
+		color: 'light-green',
 		domeinTags: [
 			{
 				tag:'Communicatie met maatschappelijke voorzieningen',
@@ -135,7 +137,7 @@ const filteredData = [
 	}, {
 		domein: 'Omgeving',
 		id: 'omgevings',
-		color: '',
+		color: 'orange',
 		domeinTags: [
 			{
 				tag:'Buurt / werkplek veiligheid',
@@ -157,6 +159,7 @@ const filteredData = [
 	}, {
 		domein: 'Gezondheids-gerelateerd Gedrag',
 		id: 'gezondheidsgerelateerd',
+		color: 'light-purple',
 		domeinTags: [
 			{
 				tag:'Fysieke activiteit',
@@ -186,6 +189,7 @@ const filteredData = [
 	}, {
 		domein: 'Risicofactoren',
 		id: 'risicofactoren',
+		color: 'dark-green',
 		domeinTags: [
 			{
 				tag:'Valpreventie',
@@ -237,7 +241,7 @@ async function renderProducts(req, res) {
 	})
 
 	const newTransformedEntries = transformedEntries.map(item => {
-		item.fields.tags = item.fields.tags.forEach(tag => {
+		item.fields.tagObjects = item.fields.tags.map(tag => {
 			const tagObject = {}
 			newFilterData.forEach(filterDataItem => {
 				const domainTags = filterDataItem.domeinTags.map(tag => tag.slug)
@@ -246,20 +250,17 @@ async function renderProducts(req, res) {
 				if(domainTags.includes(tag)) {
 					// console.log('hi')
 					tagObject.domain = filterDataItem.id
+					tagObject.color = filterDataItem.color
 				}
 			})
 			tagObject.tag = tag
-			if(tagObject.domain === 'fysiologisch') {
-
-			} else if(tagObject.domain === 'psychosociaal')
 			return tagObject
 		})
 		return item
 	})
-	// console.log(newTransformedEntries)
 
 	res.render('products', {
-		items: transformedEntries,
+		items: newTransformedEntries,
 		filteredData: newFilterData,
 		page: 'producten'
 	})

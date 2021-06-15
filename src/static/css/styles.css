@@ -8,6 +8,7 @@
 	--ehealth-items-container-width: calc(100vw - var(--form-domein-filters-width));
 }
 
+
 body{ 
 	background-color: #EBEAEF;
 	margin: 0;
@@ -481,6 +482,22 @@ main.indexPage .ehealthitemscontainer .error-msg {
 .indexheader a p img {
 	width: 30px;
 	margin: 0px 5px;
+}
+
+.dark-purple {
+	background-color: var(--main-color);
+}
+.light-green {
+	background-color: var(--second-color);
+}
+.orange {
+	background-color: var(--third-color);
+}
+.light-purple {
+	background-color: var(--fourth-color);
+}
+.dark-green {
+	background-color: var(--fifth-color);
 }
 
 
