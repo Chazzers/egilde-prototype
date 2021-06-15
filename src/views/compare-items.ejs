@@ -24,9 +24,11 @@
 				<section class="item-beschrijving-container item-content-container">
 					<h2>Beschrijving</h2>
 					<%- item.fields.beschrijving %>
+					<h3>Wat kunt u ermee?</h3>
+					<%- item.fields.watKunJeErMee %>
 				</section>
 				<section class="item-tags-container item-content-container">
-					<h2>Tags</h2>
+					<h3>Tags</h3>
 					<ul>
 						<% item.fields.tags.forEach(tag => { %>
 							<li><%= tag %></li>

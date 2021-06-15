@@ -16,7 +16,6 @@ const renderDomainTagFilter = require('./src/controllers/render/renderDomainTagF
 const renderProductDetails = require('./src/controllers/render/renderProductDetails')
 const renderSearchPage = require('./src/controllers/render/renderSearchPage')
 const renderIndex = require('./src/controllers/render/renderIndex')
-const renderCompare = require('./src/controllers/render/renderCompare')
 const renderCompareItems = require('./src/controllers/render/renderCompareItems')
 const postCompareForm = require('./src/controllers/post/postCompareForm')
 
@@ -61,7 +60,6 @@ app
 	.get('/producten/:product', renderProductDetails)
 	.get('/zoeken', renderSearchPage)
 	.get('/', renderIndex)
-	.get('/vergelijken', renderCompare)
 	.get('/vergelijken/:item_1/:item_2', renderCompareItems)
 
 	.post('/omaha-domein', postOmahaFilterForm)

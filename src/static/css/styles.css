@@ -599,6 +599,7 @@ article h5{
 	color: black;
 	text-align: left;
 	font-weight: 100;
+	margin: 15px 0;
 }
 
 .detailPage article {
@@ -787,9 +788,6 @@ header a {
 
 /* vergelijken */
 
-.vergelijken {
-
-}
 
 .vergelijken .vergelijken-form {
 	display: flex;
@@ -1044,12 +1042,13 @@ header a {
 	color: black;
 	padding: 0;
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: lighter;
 }
 
 .vergelijken-items .item h3 {
 	position: static;
 	color: black;
+	font-weight: lighter;
 	padding: 0;
 }
 
@@ -1237,7 +1236,7 @@ main.vergelijken .vergelijken-form .ehealth-item .ehealth-tags-container h5{
 	
 	.vergelijken-items .item .item-content-container h2  {
 		font-size: 1.75em;
-		font-weight: 500;
+		font-weight: lighter;
 	}
 
 	.vergelijken-items .item .item-content-container h3  {

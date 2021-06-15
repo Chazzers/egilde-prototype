@@ -15,6 +15,8 @@
 			<section>
 				<h2>Beschrijving</h2>
 				<%- item.beschrijving %>
+				<h3>Wat kunt u ermee?</h3>
+				<%- item.watKunJeErMee%>
 			</section>
 			<section class="img">
 				<% if(item.afbeelding) { %>
@@ -31,7 +33,10 @@
 			<section>
 				<h2>Gebruik</h2>
 				<div id="input-container2" class="hide">
-				<%- item.implementatieStappen %>
+				<h3>Voor de client</h3>
+				<%- item.implementatieStappenVoorDeClient %>
+				<h3>Voor de verzorger</h3>
+				<%- item.implementatieStappenVoorDeVerzorger %>
 				</div>
 				<button type="button" id="meerButton2">Toon meer</button>
 			</section>
@@ -46,6 +51,10 @@
 				<h2>Extra informatie</h2>
 				<div id="input-container4" class="hide">
 				<%- item.extraInformatie %>
+				<% if(item.data) { %>
+					<h3>Wat gebeurd er met de (data) gegevens?</h3>
+					<%- item.data %>
+				<% } %>
 				</div>
 				<button type="button" id="meerButton4">Toon meer</button>
 			</section>
