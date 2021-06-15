@@ -13,9 +13,12 @@
 		</div>
 	</header>
 	<main class="indexPage vergelijken">
-		<form>
+		<form id="form-domein-filters" class="form-domein-filters">
 			<fieldset class="">
-				<legend>Domeinen</legend>
+				<div class="legend-container">
+					<legend>Domeinen</legend>
+					<button type="button" class="close-btn" id="close-btn">X</button>
+				</div>
 				<% filteredData.forEach((domein, index) => { %>
 					<div class="container">
 						<% if(domein.domeinTags.length > 0) { %> 

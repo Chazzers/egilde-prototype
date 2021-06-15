@@ -1,6 +1,7 @@
-const fieldset = document.querySelector("fieldset")
+const formDomeinFilters = document.getElementById("form-domein-filters")
+const closeBtn = document.getElementById("close-btn")
 const text = document.getElementById("text")
-const button  = document.getElementById("filterButton")
+const filterButton  = document.getElementById("filterButton")
 const allFormContainers = document.querySelectorAll('.indexPage form .container')
 const allFormContainersArray = [...allFormContainers]
 const ehealthItems = document.querySelectorAll('.ehealth-item')
@@ -10,11 +11,19 @@ const allFilterCheckboxesArray = [...allFilterCheckboxes]
 const filters = document.querySelectorAll(".hide")
 const buttonshow  = document.querySelectorAll(".showmorebutton")
 const buttonshowArray  = [...buttonshow]
+const errorMsg = document.querySelector('.error-msg')
+const ehealthItemsOverview = document.getElementById('ehealth-items-overview')
+const ehealthItemsFirstAnchor = document.querySelector('.ehealthitemscontainer a')
 
 
-if(button) {
-	button.addEventListener("click", function(){
-		fieldset.classList.toggle("showclass")
+if(filterButton) {
+	filterButton.addEventListener("click", function(){
+		formDomeinFilters.classList.add('showclass')
+		document.body.classList.add('noscroll')
+	})
+	closeBtn.addEventListener('click', () => {
+		formDomeinFilters.classList.remove('showclass')
+		document.body.classList.remove('noscroll')
 	})
 }
 
@@ -34,6 +43,19 @@ if(allFilterCheckboxes) {
 		ehealthItemsArray.forEach(item => item.classList.remove('hide-ehealth'))
 		const hideEhealthItems = filterAllTagsNecessary(ehealthItemsArray)
 		hideEhealthItems.forEach(item => item.classList.add('hide-ehealth'))
+
+		const errorMsg = document.querySelector('.error-msg')
+		
+		if(hideEhealthItems.length === ehealthItemsArray.length && !errorMsg) {
+			const errorDiv = document.createElement('div')
+			const errorParagraph = document.createElement('p')
+			errorParagraph.innerHTML = 'Met uw huidige filters kunnen geen e-Health toepassingen gevonden worden'
+			errorDiv.appendChild(errorParagraph)
+			errorDiv.classList.add('error-msg')
+			ehealthItemsOverview.insertBefore(errorDiv, ehealthItemsFirstAnchor)
+		} else if(hideEhealthItems.length !== ehealthItemsArray.length && errorMsg) {
+			ehealthItemsOverview.removeChild(errorMsg)
+		}
 	}))
 }
 
