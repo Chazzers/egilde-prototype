@@ -247,8 +247,6 @@ async function renderIndex(req, res) {
 	
 	const allTags = cleanTags(items)
 
-	console.log(allTags)
-
 	newFilterData.forEach(item => item.domeinTags = item.domeinTags.filter(tag => allTags.includes(tag.slug)))
 
 	const newTransformedEntries = transformedEntries.map(item => {

@@ -34,8 +34,8 @@
 						<h3><%= item.fields.titel %></h3>
 						
 						<div class="ehealth-tags-container">
-							<% item.fields.newTags.forEach(tag => { %>
-								<h5><%= tag %></h5>
+							<% item.fields.tagObjects.forEach(tag => { %>
+								<h5 class="<%= tag.color %>"><%= tag.tag %></h5>
 							<% }) %>
 						</div>
 					</article>
@@ -53,8 +53,8 @@
 							<% } %>
 							<h3><%= item.fields.titel %></h3>
 							<div class="ehealth-tags-container">
-								<% item.fields.newTags.forEach(tag => { %>
-									<h5><%= tag %></h5>
+								<% item.fields.tagObjects.forEach(tag => { %>
+									<h5 class="<%= tag.color %>"><%= tag.tag %></h5>
 								<% }) %>
 							</div>
 						</article>
