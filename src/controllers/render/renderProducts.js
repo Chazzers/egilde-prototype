@@ -135,6 +135,7 @@ const filteredData = [
 	}, {
 		domein: 'Omgeving',
 		id: 'omgevings',
+		color: '',
 		domeinTags: [
 			{
 				tag:'Buurt / werkplek veiligheid',
@@ -234,6 +235,28 @@ async function renderProducts(req, res) {
 		item.fields.tags = replaceWhitespaceAndSlashWithHyphen(item.fields.tags)
 		return item
 	})
+
+	const newTransformedEntries = transformedEntries.map(item => {
+		item.fields.tags = item.fields.tags.forEach(tag => {
+			const tagObject = {}
+			newFilterData.forEach(filterDataItem => {
+				const domainTags = filterDataItem.domeinTags.map(tag => tag.slug)
+				// console.log(domainTags)
+				// console.log(tag)
+				if(domainTags.includes(tag)) {
+					// console.log('hi')
+					tagObject.domain = filterDataItem.id
+				}
+			})
+			tagObject.tag = tag
+			if(tagObject.domain === 'fysiologisch') {
+
+			} else if(tagObject.domain === 'psychosociaal')
+			return tagObject
+		})
+		return item
+	})
+	// console.log(newTransformedEntries)
 
 	res.render('products', {
 		items: transformedEntries,
