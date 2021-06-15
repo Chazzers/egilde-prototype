@@ -6,7 +6,6 @@ https://egilde.herokuapp.com/
 
 ## Table of Contents
 - Beschrijving 
-- Concept
 - Moscow
 - Headless CMS
   - Welke API hebben wij gebruikt
@@ -19,10 +18,15 @@ https://egilde.herokuapp.com/
 
 
 ## Beschrijving
-De opdrachtgever van het project eGilde van de meesterproef 2021 is de Gezondheidsfabriek samen met Digital Life Center. Veel technologische innovaties worden in de zorg niet gebruikt, omdat het implementatie proces niet soepel verloopt. In het eGilde project proberen ze dit te verbeteren door middel van een productklapper. In deze productklapper staan 17 eHealth toepassingen die cliënten moeten helpen in het dagelijkse leven. Denk aan kleine sensoren die geplaatst worden om vallen bij ouderen te voorkomen of bijvoorbeeld een smartwatch met agenda die ouderen met geheugen moet helpen. 
-
-## Concept
+De opdrachtgever van het project eGilde van de meesterproef 2021 is de Gezondheidsfabriek samen met Digital Life Center. Veel technologische innovaties worden in de zorg niet gebruikt, omdat het implementatie proces niet soepel verloopt. In het eGilde project proberen ze dit te verbeteren door middel van een productklapper en deze te digitaliseren. In deze productklapper staan 17 eHealth toepassingen die cliënten moeten helpen in het dagelijkse leven. Denk aan kleine sensoren die geplaatst worden om vallen bij ouderen te voorkomen of bijvoorbeeld een smartwatch met agenda die ouderen met geheugen moet helpen. 
 ![](./static/public/img/spel.png)
+
+### Features:
+- Slim filteren
+- Snel zoeken
+- Toepassingen vergelijken
+- Recent bekeken
+- Populair
 
 ### Hoe te bouwen:
 - CMS inrichten
@@ -31,13 +35,6 @@ De opdrachtgever van het project eGilde van de meesterproef 2021 is de Gezondhei
 - CMS call
 - Maken van producten en detailpage
 - Filter en zoek maken
-
-### Features:
-- Slim filteren
-- Snel zoeken
-- Toepassingen vergelijken
-- Recent bekeken
-- Populair
 
 ## Moscow
 ### Must have:
@@ -67,20 +64,7 @@ De opdrachtgever van het project eGilde van de meesterproef 2021 is de Gezondhei
 Contentful
 
 ### API Inhoud:
-```
-"artObjects": [
-  {
-    "links": {}                     // link naar item op rijkmuseum website en in de api
-    "id":                           // combinatie van collectie en objectnummer 
-    "objectNumber":                 // nummer en cijfer combinatie
-    "title": "Bureau",              // korte titel     
-    "principalOrFirstMaker":        // orginele kunstenaar
-    "longTitle":                    // lange titel van het kunstwerk
-    "webImage": {}                  // Image met url en afmetingen
-    "headerImage": {}               // Image in header grootte met url en afmetingen
-    "productionPlaces": []          // Plek(ken) waar het kunstwerk gemaakt is
-  }
-```
+![](./src/static/images/contentful.png)
 
 ### Hoe gebruikt:
 - getData function: 
