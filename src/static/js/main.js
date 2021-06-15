@@ -67,8 +67,6 @@ if(zoekForm) {
 		const titles = eHealthItemsArray.map(item => item.dataset.title)
 		const tags = eHealthItemsArray.map(item => item.dataset.id.split(','))
 
-		console.log(searchValue)
-
 		if(titles.includes(searchValue)) {
 			eHealthItemsArray.forEach(item => item.classList.remove('hide-ehealth'))
 			const filteredItems = filterOnTitle(eHealthItemsArray, searchValue)
@@ -96,7 +94,6 @@ if(vergelijkBtn) {
 
 if(vergelijkCheckboxes) {
 	const vergelijkCheckboxesArray = [...vergelijkCheckboxes]
-	const vergelijkCheckboxesLabelArray = [...vergelijkCheckboxesLabel]
 	const vergelijkSubmitBtn = document.createElement('button')
 	vergelijkSubmitBtn.classList.add('vergelijken-submit')
 	vergelijkSubmitBtn.classList.add('active')

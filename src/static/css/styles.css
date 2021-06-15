@@ -2,10 +2,18 @@
 	--main-color: #5E6099;
 	--second-color: #AFCCA8;
 	--third-color: #FFA448;
+	--form-domein-filters-width: 14rem;
+	--ehealth-items-container-width: calc(100vw - var(--form-domein-filters-width));
 }
 
 body{ 
 	background-color: #EBEAEF;
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
 	margin: 0;
 }
 
@@ -121,7 +129,6 @@ a {
 /* omaha filter */
 .omahaPage header{
 	max-width: 1400px;
-	margin: 2% auto 1%;
 	padding: 0;
 }
 
@@ -308,7 +315,7 @@ fieldset {
 	grid-template-columns: 1fr;
 	grid-template-rows: 150px 1fr;
 	max-width: 1400px;
-	margin: 2% auto 5%;
+	margin: 2% 5px 5%;
 	padding: 0;
 }
 
@@ -318,7 +325,6 @@ fieldset {
 
 .titlecontainer h1{
 	margin: auto;
-	margin: 5px;
 	place-items: center;
 	width: 100%;
 }
@@ -336,6 +342,52 @@ main.indexPage{
 	max-width: 1400px;
 }
 
+main.indexPage section {
+	flex: 1 1 100%;
+}
+
+body.noscroll {
+	overflow: hidden;
+}
+
+main.indexPage .form-domein-filters{
+	flex: 0 1 var(--form-domein-filters-width);
+	transform: translateX(-100%);
+	position: fixed;
+	left: 0;
+	top: 0;
+	background-color: #EBEAEF;
+	z-index: 1;
+	transition: all 1s ease;
+	height: 100vh;
+	margin: 0;
+	width: 100%;
+	padding: 1rem;
+}
+
+main.indexPage .form-domein-filters.showclass{
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+	overflow: scroll;
+}
+
+main.indexPage .form-domein-filters.showclass .close-btn{
+	margin-right: 1rem;
+	font-weight: bold;
+	padding: 1rem;
+}
+
+main.indexPage .form-domein-filters.showclass .legend-container{
+	display: flex;
+	justify-content: space-between;
+}
+
+main.indexPage .ehealthitemscontainer .error-msg {
+	display: block;
+	padding: 1rem;
+}
+
 .indexPage form {
 	margin: 0 auto;
 	padding: 0 5px;
@@ -343,11 +395,6 @@ main.indexPage{
 
 .indexPage .showclass{
 	display: block;
-}
-
-.indexPage fieldset{
-	display: none;
-	border-right: 1px solid black;
 }
 
 .indexPage .container{
@@ -1137,7 +1184,6 @@ header a {
 
 .vergelijken-items .item .item-link {
 	color: white;
-    /* margin: 10px auto;  */
     padding: 8px 20px;
     font-size: 16px;
     font-weight: 100;
@@ -1262,6 +1308,32 @@ main.vergelijken .vergelijken-form .ehealth-item .ehealth-tags-container h5{
 		flex-direction: row;
 		flex-wrap: nowrap;
 		justify-content: space-between;
+	}
+	
+	.indexPage fieldset {
+		border-right: 1px solid black;
+	}
+
+	main.indexPage .form-domein-filters{
+		transform: translateX(0);
+		position: static;
+		background-color: #EBEAEF;
+		width: var(--form-domein-filters-width);
+		display: block;
+		height: auto;
+	}
+	main.indexPage .form-domein-filters fieldset{
+		width: var(--form-domein-filters-width);
+	}
+	main.indexPage .form-domein-filters .close-btn{
+		display: none;
+	}
+	main.indexPage .container {
+		width: 100%;
+	}
+
+	main.indexPage legend {
+		width: 100%;
 	}
 }
 

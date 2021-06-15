@@ -228,7 +228,6 @@ async function renderProducts(req, res) {
 	
 	const allTags = cleanTags(items)
 
-
 	newFilterData.forEach(item => item.domeinTags = item.domeinTags.filter(tag => allTags.includes(tag.tag)))
 
 	const transformedEntries = items.map(item => {
