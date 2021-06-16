@@ -1027,6 +1027,7 @@ header a {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	padding: 0;
 }
 
 .vergelijken .vergelijken-form .vergelijken-checkbox{
@@ -1080,8 +1081,8 @@ header a {
 	width: 2rem;
 	height: 2rem;
 	position: absolute;
-	top: -5%;
-	right: -5%;
+	top: -2.5%;
+	right: -2.5%;
 	border: 2px solid var(--main-color);
 	border-radius: 8px;
 	background-color: #fff;
