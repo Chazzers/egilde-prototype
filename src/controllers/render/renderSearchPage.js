@@ -246,10 +246,7 @@ async function renderSearchPage(req, res) {
 			const tagObject = {}
 			newFilterData.forEach(filterDataItem => {
 				const domainTags = filterDataItem.domeinTags.map(tag => tag.slug)
-				// console.log(domainTags)
-				// console.log(tag)
 				if(domainTags.includes(tag)) {
-					// console.log('hi')
 					tagObject.domain = filterDataItem.id
 					tagObject.color = filterDataItem.color
 				}
