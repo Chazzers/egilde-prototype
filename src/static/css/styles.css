@@ -1,9 +1,9 @@
 :root {
 	--main-color: #5E6099;
-	--second-color: #AFCCA8;
-	--third-color: #FFA448;
-	--fourth-color: #A4B4E3;
-	--fifth-color: #709963;
+	--second-color: #597b80;
+	--third-color: #3c73bb;
+	--fourth-color: #be696e;
+	--fifth-color: #A63D40;
 	--form-domein-filters-width: 14rem;
 	--ehealth-items-container-width: calc(100vw - var(--form-domein-filters-width));
 }
@@ -198,7 +198,7 @@ a {
 
 .omaha-domein-input:checked + label,
 .omaha-domein-tag-input:checked + label {
-	background-color: var(--second-color);
+	background-color: #a0a1d1;
 	color: white;
 	font-weight: 500;
 }
@@ -559,16 +559,16 @@ div.filterbox{
 }
 
 .filterbox input:checked + label {
-	background-color: #5E6099;
+	background-color: var(--fourth-color);
 	color: white;
 }
 
 .filterbox input:checked + label.cog{
-	background-color: var(--second-color);
+	background-color: var(--main-color);
 }
 
 .filterbox input:checked + label.med{
-	background-color: var(--third-color);
+	background-color: var(--fourth-color);
 }
 
 .indexPage article{
@@ -621,7 +621,8 @@ article h5{
 	position: absolute;
 	border-radius: 5px;
 	text-align: center;
-	color: white;
+	color: rgb(255, 255, 255);
+	font-weight: 100;
 	margin: 8px;
 	padding: 5px;
 	bottom: 5px;
@@ -629,7 +630,7 @@ article h5{
 	font-size: 14px;
 	background-color: var(--second-color);
 	opacity: 1;
-	box-shadow: rgb(84, 84, 84) 1px 1px 10px;
+	box-shadow: rgb(75, 75, 75) 1px 1px 5px;
 }
 
 .input-container {
@@ -865,88 +866,6 @@ header a {
 	width: 350px;
 }
 
-/* vergelijken */
-
-
-.vergelijken .vergelijken-form {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-}
-
-.vergelijken .vergelijken-form .vergelijken-checkbox{
-	display: none;
-}
-
-.vergelijken .vergelijken-form .vergelijken-checkbox.inactive-checkbox + label {
-	pointer-events: none;
-}
-
-
-.vergelijken .vergelijken-form .vergelijken-checkbox.inactive-checkbox + label .vergelijken-visual-checkbox{
-	border: solid 2px rgb(210, 210, 210);
-}
-
-
-.vergelijken .vergelijken-form .vergelijken-submit {
-	display: block;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	padding: 1rem;
-	background-color: rgb(210, 210, 210);
-	width: 100%;
-	font-weight: 500;
-	color: rgb(84, 84, 84);
-	text-align: center;
-	z-index: 2;
-}
-
-.vergelijken .vergelijken-form .vergelijken-submit.active {
-	background-color: var(--main-color);
-	color: white;
-}
-
-.vergelijken .vergelijken-form .vergelijken-label{
-	display: block;
-	position: relative;
-	background-color: transparent;
-	padding: 0;
-	margin: 0;
-}
-
-.vergelijken .vergelijken-form .vergelijken-label .ehealth-item{
-	max-width: 350px;
-	width: 30vw;
-	min-width: 250px;
-}
-
-.vergelijken .vergelijken-form .vergelijken-label .vergelijken-visual-checkbox {
-	width: 2rem;
-	height: 2rem;
-	position: absolute;
-	top: -5%;
-	right: -5%;
-	border: 2px solid var(--main-color);
-	border-radius: 8px;
-	background-color: #fff;
-}
-
-.vergelijken .vergelijken-form .vergelijken-checkbox:checked + label .vergelijken-visual-checkbox {
-	background-color: var(--main-color);
-}
-
-.vergelijken .vergelijken-form .vergelijken-label .vergelijken-visual-checkbox svg {
-	display: none;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.vergelijken .vergelijken-form .vergelijken-checkbox:checked + label .vergelijken-visual-checkbox svg {
-	display: block;
-}
 
 /* landingspage */
 
@@ -1084,7 +1003,17 @@ header a {
 
 .calltoaction article{
 	height: 60px;
-	background-color: var(--second-color);
+	background-color: var(--main-color);
+	padding: 5px;
+	min-width: 150px;;
+	border-radius: 50px;
+	width: 20vw;
+	margin: 10px;
+}
+
+.calltoaction article:nth-child(2){
+	height: 60px;
+	background-color: grey;
 	padding: 5px;
 	min-width: 150px;;
 	border-radius: 50px;
@@ -1216,8 +1145,6 @@ header a {
 	grid-area: link2;
 	margin: 0 auto
 }
-
-
 
 .vergelijken-items .item .item-link {
 	color: white;
