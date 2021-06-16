@@ -1021,7 +1021,87 @@ header a {
 	color: white;
 }
 
+/* vergelijken */
 
+.vergelijken .vergelijken-form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.vergelijken .vergelijken-form .vergelijken-checkbox{
+	display: none;
+}
+
+.vergelijken .vergelijken-form .vergelijken-checkbox.inactive-checkbox + label {
+	pointer-events: none;
+}
+
+
+.vergelijken .vergelijken-form .vergelijken-checkbox.inactive-checkbox + label .vergelijken-visual-checkbox{
+	border: solid 2px rgb(210, 210, 210);
+}
+
+
+.vergelijken .vergelijken-form .vergelijken-submit {
+	display: block;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
+	background-color: rgb(210, 210, 210);
+	width: 100%;
+	font-weight: 500;
+	color: rgb(84, 84, 84);
+	text-align: center;
+	z-index: 2;
+}
+
+.vergelijken .vergelijken-form .vergelijken-submit.active {
+	background-color: var(--main-color);
+	color: white;
+}
+
+.vergelijken .vergelijken-form .vergelijken-label{
+	display: block;
+	position: relative;
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+}
+
+.vergelijken .vergelijken-form .vergelijken-label .ehealth-item{
+	max-width: 350px;
+	width: 30vw;
+	min-width: 250px;
+}
+
+.vergelijken .vergelijken-form .vergelijken-label .vergelijken-visual-checkbox {
+	width: 2rem;
+	height: 2rem;
+	position: absolute;
+	top: -5%;
+	right: -5%;
+	border: 2px solid var(--main-color);
+	border-radius: 8px;
+	background-color: #fff;
+}
+
+.vergelijken .vergelijken-form .vergelijken-checkbox:checked + label .vergelijken-visual-checkbox {
+	background-color: var(--main-color);
+}
+
+.vergelijken .vergelijken-form .vergelijken-label .vergelijken-visual-checkbox svg {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.vergelijken .vergelijken-form .vergelijken-checkbox:checked + label .vergelijken-visual-checkbox svg {
+	display: block;
+}
 /*
 	Vergelijken-detail
 */
