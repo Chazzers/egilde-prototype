@@ -194,6 +194,7 @@ async function renderOmahaFilter(req, res) {
 	
 	// render this filter data
 	res.render('omaha-filter', {
+		title: "OMAHA filter stap 1",
 		filterData: newFilterData,
 		page: 'omaha-filter'
 	})

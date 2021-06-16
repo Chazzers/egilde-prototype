@@ -1,17 +1,15 @@
-<div class="buttons">
-	<a href="/" >
-		<p class="<%= page === 'landing-page' ? 'active-nav-item' : '' %>" id="text">home</p>
-	</a>
-	
-	<a href="/producten">
-		<p class="<%= page === 'producten' ? 'active-nav-item' : '' %>" id="text">producten</p>
-	</a>
-	<% if(page === 'producten') { %>
-		<button type="button" id="filterButton">
-			<p class="<%= page === 'landing-page' ? 'active-nav-item' : '' %>" id="text">filter</p>
-		</button>
-	<% } %>
-	<a href="/zoeken">
-		<p id="text" class="<%= page === 'zoeken' ? 'active-nav-item' : '' %>">zoek</p>
-	</a>
-</div>
+<a href="/" >
+	<p class="<%= page === 'landing-page' ? 'active-nav-item' : '' %>" id="text">home</p>
+</a>
+
+<a href="/producten">
+	<p class="<%= page === 'producten' ? 'active-nav-item' : '' %>" id="text">producten</p>
+</a>
+<% if(page === 'producten') { %>
+	<button type="button" id="filterButton">
+		<p class="<%= page === 'landing-page' ? 'active-nav-item' : '' %>" id="text">filter</p>
+	</button>
+<% } %>
+<a href="/zoeken">
+	<p id="text" class="<%= page === 'zoeken' ? 'active-nav-item' : '' %>">zoek</p>
+</a>

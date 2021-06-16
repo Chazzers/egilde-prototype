@@ -31,6 +31,7 @@ async function renderCompareItems(req, res) {
 	})
 
 	res.render('compare-items', {
+		title: "Vergelijk items",
 		items: compareItems,
 		page: false
 	})

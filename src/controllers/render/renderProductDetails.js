@@ -74,6 +74,7 @@ async function renderProductDetails(req, res){
 
 	// render the page
     res.render('product-details', {
+		title: "product details",
 		item: currentEntry.fields,
 		page: 'product-detail'
 	})

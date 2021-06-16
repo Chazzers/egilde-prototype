@@ -260,6 +260,7 @@ async function renderProducts(req, res) {
 	})
 
 	res.render('products', {
+		title: "producten",
 		items: newTransformedEntries,
 		filteredData: newFilterData,
 		page: 'producten'

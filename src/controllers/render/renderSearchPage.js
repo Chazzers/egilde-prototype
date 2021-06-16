@@ -297,6 +297,7 @@ async function renderSearchPage(req, res) {
 	const allTags = cleanTags(items)
 
 	res.render('search', {
+		title: "zoek",
 		recentItems: recentlyVisited,
 		mostVisited: newFiveMostvisitedEntriesTransformed,
 		allItems: newTransformedEntries,

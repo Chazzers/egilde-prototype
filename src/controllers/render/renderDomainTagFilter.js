@@ -235,6 +235,7 @@ async function renderDomainTagFilter(req, res) {
 	filteredDomainData.forEach(item => item.domeinTags = item.domeinTags.filter(tag => allTags.includes(tag.tag)))
 
 	res.render('omaha-domain', {
+		title: "OMAHA filter stap 2",
 		filterData: filteredDomainData,
 		page: 'omaha-domein'
 	})

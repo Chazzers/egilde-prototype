@@ -312,6 +312,7 @@ async function renderIndex(req, res) {
 
 	// render landingspage
 	res.render('index', {
+		title: "Home",
 		items: recentlyVisited,
 		page: 'landing-page',
 		mostVisited: newFiveMostvisitedEntriesTransformed
