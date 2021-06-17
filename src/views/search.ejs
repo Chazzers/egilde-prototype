@@ -29,7 +29,7 @@
 				<a href="/producten/<%= item.fields.slug %>">
 					<article data-id="<%= item.fields.newTags %>" data-title="<%= item.fields.slug %>"  class="ehealth-item hide-ehealth">
 						<% if(item.fields.afbeelding) { %>
-							<img src="<%= item.fields.afbeelding.fields.file.url +'?fm=webp&w=350&h=350' %>" alt="">
+							<img src="<%= item.fields.afbeelding.fields.file.url +'?fm=jpg&w=350&h=350' %>" alt="">
 						<% } %>
 						<h3><%= item.fields.titel %></h3>
 						
@@ -49,7 +49,7 @@
 					<a href="/producten/<%= item.fields.slug %>">
 						<article data-id="<%= item.fields.newTags %>" data-title="<%= item.fields.slug %>"  class="ehealth-item">
 							<% if(item.fields.afbeelding) { %>
-								<img src="<%= item.fields.afbeelding.fields.file.url +'?fm=webp&w=350&h=350'  %>" alt="">
+								<img src="<%= item.fields.afbeelding.fields.file.url +'?fm=jpg&w=350&h=350'  %>" alt="">
 							<% } %>
 							<h3><%= item.fields.titel %></h3>
 							<div class="ehealth-tags-container">
@@ -69,7 +69,7 @@
 					<a href="/producten/<%= item.fields.slug %>">
 						<article data-id="<%= item.fields.tags %>" data-title="<%= item.fields.slug %>"  class="ehealth-item">
 							<% if(item.fields.afbeelding) { %>
-								<img src="<%= item.fields.afbeelding.fields.file.url +'?fm=webp&w=350&h=350'  %>" alt="">
+								<img src="<%= item.fields.afbeelding.fields.file.url +'?fm=jpg&w=350&h=350'  %>" alt="">
 							<% } %>
 							<h3><%= item.fields.titel %></h3>
 							<div class="ehealth-tags-container">

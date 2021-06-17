@@ -18,7 +18,6 @@ https://egilde.herokuapp.com/
 - Used Packages
 - Install project
 
-
 ## Beschrijving
 De opdrachtgever van het project eGilde van de meesterproef 2021 is de Gezondheidsfabriek samen met Digital Life Center. Veel technologische innovaties worden in de zorg niet gebruikt, omdat het implementatie proces niet soepel verloopt. In het eGilde project proberen ze dit te verbeteren door middel van een productklapper en deze te digitaliseren. In deze productklapper staan 17 eHealth toepassingen die cliënten moeten helpen in het dagelijkse leven. Denk aan kleine sensoren die geplaatst worden om vallen bij ouderen te voorkomen of bijvoorbeeld een smartwatch met agenda die ouderen met geheugen moet helpen. 
 
