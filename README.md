@@ -6,6 +6,9 @@ Een dashboard voor e-health toepassingen
 ## Live link:
 https://egilde.herokuapp.com/
 
+## Documentatie
+https://www.notion.so/eGilde-fd03dab3bf5e4ef296aaa7b48455de9c
+
 ## Table of Contents
 - Beschrijving 
 - Moscow
