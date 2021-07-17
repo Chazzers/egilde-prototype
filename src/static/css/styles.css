@@ -320,10 +320,22 @@ main.indexPage .form-domein-filters.showclass fieldset{
 .indexheader{
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 150px 1fr;
+	grid-template-rows: 1fr;
 	max-width: 1400px;
 	margin: 2% 1rem 5%;
 	padding: 0;
+}
+
+
+.indexheader .titlecontainer div{
+	width: 13rem;
+}
+
+
+.indexheader .titlecontainer img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
 }
 
 .titlecontainer{
@@ -341,6 +353,7 @@ main.indexPage .form-domein-filters.showclass fieldset{
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;
+	margin-top: 1rem;
 }
 
 main.indexPage{
@@ -931,13 +944,7 @@ header a {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	margin: 100px auto;
-}
-
-.moreInfo div{
-	max-width: 350px;
-	margin: 0 50px 20px;
-	margin-left: 0;
+	margin: 2rem;
 }
 
 .moreInfo img {
@@ -1261,6 +1268,28 @@ main.vergelijken .vergelijken-form .ehealth-item .ehealth-tags-container h5{
 	margin: 5px;
 }
 
+footer {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 1000px;
+	margin: 100px auto 0;
+}
+
+footer .slogan-container,
+footer .logo-container,
+footer .eu-container {
+	width: 12rem;
+	
+	margin: auto;
+}
+
+footer .slogan-container img,
+footer .logo-container img,
+footer .eu-container img {
+	width: 100%;
+	object-fit: contain;
+}
+
 
 /* @media's  */
 
@@ -1270,6 +1299,10 @@ main.vergelijken .vergelijken-form .ehealth-item .ehealth-tags-container h5{
 		grid-template-rows: 1fr;
 		padding: 0 20px;
 		margin: 2% auto 5%;
+	}
+
+	.indexheader .titlecontainer div {
+		width: 15rem;
 	}
 
 	.detailPageHeader{
