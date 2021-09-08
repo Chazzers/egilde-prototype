@@ -156,8 +156,15 @@ https://github.com/Chazzers/egilde-prototype.git
 ```
 npm install
 ```
-3. Start op het web: 
+3. Start op het web for development: 
 ```
-npm run dev
+npm run dev 
 ```
-4. Te vinden op: http://localhost:3000/
+
+4. Start op het web for production:
+
+```
+npm run start
+```
+
+5. Te vinden op: http://localhost:3000/
